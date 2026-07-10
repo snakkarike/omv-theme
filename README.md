@@ -73,40 +73,68 @@ omv-rpc "ThemeKit" "get"
 If those work, the backend is solid regardless of what the frontend
 YAML looks like.
 
-## Build
+## Build and Install
 
-On a Debian/Ubuntu box with `devscripts` and `debhelper` installed:
+**1. Clone it on obsidian and check the build tooling is there**
 
+```bash
+sudo apt install -y git devscripts debhelper build-essential
+cd ~
+git clone https://github.com/snakkarike/omv-theme.git openmediavault-themekit
 ```
-sudo apt install devscripts debhelper
-cd openmediavault-themekit
+
+Note the directory the repo lands in doesn't matter for the package name, that's set inside `debian/control`, but `dpkg-buildpackage` wants to run from inside the source tree.
+
+**2. Build the .deb**
+
+```bash
+cd ~/openmediavault-themekit
 dpkg-buildpackage -us -uc -b
 ```
 
-This produces `../openmediavault-themekit_0.1.0_all.deb` one directory
-up.
+This drops `openmediavault-themekit_0.1.0_all.deb` in `~` (one directory up from the source tree). If this step fails, it's almost always a missing build-dep, `debhelper-compat (= 13)` from `debian/control` needs a matching debhelper version on the box, so if `apt install debhelper` gave you something older, check with `dpkg -l debhelper`.
 
-## Install and iterate
+**3. Install it**
 
-```
-sudo dpkg -i ../openmediavault-themekit_0.1.0_all.deb
-sudo apt -f install   # pulls in any missing deps
-```
-
-Then refresh the OMV web UI. If the nav item or page doesn't show up:
-
-```
-sudo omv-confdbadm read conf.service.themekit   # confirm schema registered
-sudo omv-salt deploy run themekit                # force a re-render
-journalctl -u php8.2-fpm -f                      # watch for PHP errors
+```bash
+cd ~
+sudo dpkg -i openmediavault-themekit_0.1.0_all.deb
+sudo apt -f install
 ```
 
-Since you're already comfortable in Angular/NG-ZORRO land: the payoff
-here is that you don't touch TypeScript at all, the workbench reads
-these YAML manifests and builds the form itself. Your existing
-Trust Now CSS token approach (navy/sage/per-product accent) would map
-cleanly onto the `theme-custom.css.j2` template if you want to reuse
-that palette instead of the six preset accents above.
+`postinst` runs automatically here: it registers the config schema, then calls `omv-salt deploy run themekit`, which is the step that actually writes `assets/theme-custom.css`, patches `index.html`, and backs up the original wallpapers. Watch the terminal output of `dpkg -i` for errors from that, since `postinst` has `set -e` but most steps are wrapped in `|| true` so a failure there won't block install, it'll just silently no-op.
+
+**4. Verify the backend before touching the UI**
+
+```bash
+omv-confdbadm read conf.service.themekit
+omv-rpc "ThemeKit" "get"
+```
+
+Both should return JSON with `mode: "dark"`, `accent: "default"`, empty wallpaper paths. If `omv-confdbadm read` fails, the datamodel didn't register, check `journalctl -xe` around the install time for the actual `omv-confdbadm create` error. If `omv-rpc` fails but the confdbadm read worked, that's a PHP problem, and given my earlier caveat about `ThemeKit.php` being written from convention rather than a live reference, this is the step most likely to break.
+
+**5. Check the files actually landed right**
+
+```bash
+cat /var/www/openmediavault/assets/theme-custom.css
+grep theme-custom /var/www/openmediavault/index.html
+ls -la /var/www/openmediavault/assets/images/*.orig
+```
+
+The `.orig` backups confirm the wallpaper-backup step ran even though you haven't set a custom wallpaper yet, since that block runs unconditionally.
+
+**6. Load the UI**
+
+Hard refresh (Ctrl+Shift+R, since `index.html` itself changed) and look for "Theme Kit" under System in the sidebar. If the nav item's missing but everything above worked, that's a workbench YAML key mismatch, check the browser console (F12) for a manifest parse error, since that's the part I'm least confident matches OMV 8.5.1 exactly.
+
+**7. If something's off, isolate it**
+
+```bash
+sudo omv-salt deploy run themekit   # re-run just the state, safe to repeat
+journalctl -u php8.2-fpm -f          # tail while you click around
+```
+
+Paste back whatever breaks at each step and I'll patch the specific file rather than guessing again.
 
 ## Uninstall
 
