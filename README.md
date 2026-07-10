@@ -2,6 +2,21 @@
 
 An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize the accent color of the UI using a massive Tailwind color palette and a variety of themes. Settings are stored in OMV's config database, and a Salt state renders them into an actual CSS file. An apt hook re-runs that Salt state after every `apt upgrade`, so your theme survives OMV updates.
 
+## Installation
+
+To install the plugin on your OpenMediaVault server, download the latest release and install it via `dpkg`:
+
+```bash
+# Download the latest 1.0.0 release
+wget https://github.com/snakkarike/openmediavault-themekit/releases/download/v1.0.0/openmediavault-themekit_1.0.0_all.deb
+
+# Install the package
+sudo dpkg -i openmediavault-themekit_1.0.0_all.deb
+sudo apt-get install -f -y
+```
+
+Once installed, refresh your browser (`Ctrl+Shift+R`) and look for "Theme Kit" under System in the OMV sidebar.
+
 ## Layout
 
 - `debian/` - standard Debian packaging (control, rules, postinst, postrm)
@@ -18,7 +33,7 @@ An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize th
 - `index.html` is a package-tracked file and gets replaced wholesale on every `openmediavault-webgui` update, so the patch has to be idempotent and re-run on every deploy (handled in `init.sls` via `patch_index_html`, guarded by a `grep` check), not just once at install.
 - The CSS template violently overrides specific hardcoded elements in OMV 8 (like the `#5dacdf` blue used on the top toolbar and active tabs) to ensure your selected accent color applies everywhere, while leaving the default OMV dark/light mode system entirely intact.
 
-## Build and Install
+## Build from Source (For Developers)
 
 **1. Clone it and install build dependencies**
 
