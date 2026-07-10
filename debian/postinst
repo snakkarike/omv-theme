@@ -5,11 +5,7 @@ set -e
 case "$1" in
     configure)
         # Register (or update) the config database schema for this plugin.
-        if [ -z "$2" ]; then
-            omv-confdbadm create "conf.service.themekit" || true
-        else
-            omv-confdbadm update "conf.service.themekit" || true
-        fi
+        omv-confdbadm populate "conf.service.themekit" || true
 
         # Render the CSS + copy wallpapers based on current settings.
         omv-salt deploy run themekit || true
