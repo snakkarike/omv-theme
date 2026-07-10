@@ -16,6 +16,7 @@ case "$1" in
         for f in /etc/init.d/php*-fpm; do
             [ -x "$f" ] && "$f" reload 2>/dev/null || true
         done
+        systemctl restart openmediavault-engined 2>/dev/null || true
         ;;
 esac
 
