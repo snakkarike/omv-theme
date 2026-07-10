@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+
+WEBROOT="/var/www/openmediavault"
+
+case "$1" in
+    purge)
+        omv-confdbadm delete "conf.service.themekit" || true
+
+        # Remove our injected <link> from index.html. Package upgrades
+        # already replace this file wholesale, so this mainly matters
+        # if the box goes straight from purge to a fresh
+        # openmediavault-webgui reconfigure without an intervening
+        # package update.
+        sed -i '/theme-custom\.css/d' "$WEBROOT/index.html" 2>/dev/null || true
+
+        rm -f "$WEBROOT/assets/theme-custom.css"
+
+        # Restore original wallpapers from our backups, if present.
+        for f in login standby shutdown; do
+            if [ -f "$WEBROOT/assets/images/$f.jpg.orig" ]; then
+                mv -f "$WEBROOT/assets/images/$f.jpg.orig" "$WEBROOT/assets/images/$f.jpg"
+            fi
+        done
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

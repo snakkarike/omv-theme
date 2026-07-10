@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+PKG := openmediavault-themekit
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p debian/$(PKG)
+	cp -a usr debian/$(PKG)/
+	cp -a srv debian/$(PKG)/
+	cp -a etc debian/$(PKG)/
+
+override_dh_auto_test:
+	# no tests
+
+override_dh_auto_build:
+	# nothing to build, this is a config/YAML/PHP plugin

@@ -1,0 +1,6 @@
+openmediavault-themekit (0.1.0) stable; urgency=medium
+
+  * Initial scaffold: mode/accent/wallpaper settings page, salt deploy,
+    apt hook for persistence.
+
+ -- Saurabh Nakkarike <you@example.com>  Fri, 10 Jul 2026 12:00:00 +0530

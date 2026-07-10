@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation
+data:
+  id: themekit
+  path: /system/themekit
+  text: _("Theme Kit")
+  icon: mdi:palette
+  position: 60
+  permissions:
+    role:
+      - admin

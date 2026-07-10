@@ -1,0 +1,33 @@
+{
+    "type": "config",
+    "id": "conf.service.themekit",
+    "title": "ThemeKit",
+    "queryinfo": {
+        "xpath": "//services/themekit",
+        "iterable": false
+    },
+    "properties": {
+        "mode": {
+            "type": "string",
+            "enum": ["light", "dark"],
+            "default": "dark"
+        },
+        "accent": {
+            "type": "string",
+            "enum": ["default", "red", "citrus", "lime", "sky", "plum", "rose"],
+            "default": "default"
+        },
+        "loginwallpaper": {
+            "type": "string",
+            "default": ""
+        },
+        "standbywallpaper": {
+            "type": "string",
+            "default": ""
+        },
+        "shutdownwallpaper": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

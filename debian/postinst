@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        # Register (or update) the config database schema for this plugin.
+        if [ -z "$2" ]; then
+            omv-confdbadm create "conf.service.themekit" || true
+        else
+            omv-confdbadm update "conf.service.themekit" || true
+        fi
+
+        # Render the CSS + copy wallpapers based on current settings.
+        omv-salt deploy run themekit || true
+
+        # Refresh the services that serve the web UI.
+        systemctl restart phpsessionclean.timer 2>/dev/null || true
+        systemctl reload-or-restart nginx 2>/dev/null || true
+        for f in /etc/init.d/php*-fpm; do
+            [ -x "$f" ] && "$f" reload 2>/dev/null || true
+        done
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

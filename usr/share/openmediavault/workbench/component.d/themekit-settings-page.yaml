@@ -1,0 +1,53 @@
+version: "1.0"
+type: component
+data:
+  name: themekit-settings-page
+  type: formPage
+  config:
+    request:
+      service: ThemeKit
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: select
+        name: mode
+        label: _("Mode")
+        value: dark
+        store:
+          data:
+            - ["light", _("Light")]
+            - ["dark", _("Dark")]
+      - type: select
+        name: accent
+        label: _("Accent color")
+        value: default
+        store:
+          data:
+            - ["default", _("Default (brand navy)")]
+            - ["red", _("Red")]
+            - ["citrus", _("Citrus")]
+            - ["lime", _("Lime")]
+            - ["sky", _("Sky")]
+            - ["plum", _("Plum")]
+            - ["rose", _("Rose")]
+      - type: textInput
+        name: loginwallpaper
+        label: _("Login screen wallpaper path")
+        hint: _("Absolute path on disk. Leave blank for the default image.")
+        value: ""
+      - type: textInput
+        name: standbywallpaper
+        label: _("Standby screen wallpaper path")
+        hint: _("Absolute path on disk. Leave blank for the default image.")
+        value: ""
+      - type: textInput
+        name: shutdownwallpaper
+        label: _("Shutdown screen wallpaper path")
+        hint: _("Absolute path on disk. Leave blank for the default image.")
+        value: ""
+    buttons:
+      - template: submit
+        execute:
+          type: request

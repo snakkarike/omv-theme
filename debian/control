@@ -1,0 +1,16 @@
+Source: openmediavault-themekit
+Section: net
+Priority: optional
+Maintainer: Saurabh Nakkarike <you@example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://github.com/yourname/openmediavault-themekit
+
+Package: openmediavault-themekit
+Architecture: all
+Depends: openmediavault (>= 8.1.1), ${misc:Depends}
+Description: Custom theme, accent color and wallpaper plugin for openmediavault
+ Adds a "Theme Kit" page under System that lets you pick light or dark
+ mode, an accent color, and custom wallpapers for the login, standby
+ and shutdown screens. Settings persist across openmediavault updates
+ via an apt hook.

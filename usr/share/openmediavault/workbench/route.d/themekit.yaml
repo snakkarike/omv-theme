@@ -1,0 +1,5 @@
+version: "1.0"
+type: route
+data:
+  path: system/themekit
+  component: themekit-settings-page
