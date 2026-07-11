@@ -15,7 +15,7 @@ case "$1" in
         fi
 
         # Register (or update) the config database schema for this plugin.
-        omv-confdbadm create "conf.service.themekit" || true
+        omv-confdbadm create "conf.service.themekit"
 
         # Render the CSS based on current settings.
         omv-salt deploy run themekit || true
@@ -27,6 +27,10 @@ case "$1" in
             [ -x "$f" ] && "$f" reload 2>/dev/null || true
         done
         systemctl restart openmediavault-engined 2>/dev/null || true
+        ;;
+    triggered)
+        # Re-apply the salt state when index.html is replaced by a webgui update
+        omv-salt deploy run themekit || true
         ;;
 esac
 

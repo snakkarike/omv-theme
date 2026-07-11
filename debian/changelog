@@ -7,6 +7,6 @@ openmediavault-themekit (1.0.0) stable; urgency=medium
   * Implemented dynamic logo inversion for themes with lighter backgrounds.
   * Corrected active list item backgrounds and icon color inheritances for seamless integration with Angular Material UI.
   * Included Salt deploy modules and APT hooks to guarantee UI state persistence across system updates.
-  * Developed Settings page for effortlessly toggling modes, accents, and wallpapers.
+  * Developed Settings page for effortlessly toggling themes and accents.
 
- -- Saurabh Nakkarike <you@example.com>  Sat, 11 Jul 2026 00:45:00 +0530
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sat, 11 Jul 2026 00:45:00 +0530

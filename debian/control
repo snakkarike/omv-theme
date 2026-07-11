@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Saurabh Nakkarike <gradelabsin@gmail.com>
 Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.6.2
-Homepage: https://github.com/yourname/openmediavault-themekit
+Homepage: https://github.com/snakkarike/openmediavault-themekit
 
 Package: openmediavault-themekit
 Architecture: all

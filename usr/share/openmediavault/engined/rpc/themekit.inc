@@ -5,12 +5,6 @@
  * Exposes ThemeKit.get / ThemeKit.set to the web UI. Reads and writes the
  * conf.service.themekit config object, then asks Salt to regenerate the
  * CSS.
- *
- * NOTE: class/method names here follow the conventions used by current
- * OMV 8 plugins (Config\Database, ServiceAbstract, validateMethodContext,
- * validateMethod). Diff this against a real installed plugin's PHP
- * (e.g. openmediavault-customthemes) before shipping, in case the exact
- * signatures have shifted between point releases.
  */
 
 use OMV\Config\Database;
