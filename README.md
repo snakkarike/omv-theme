@@ -26,17 +26,14 @@ An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize th
 
 To install the plugin on your OpenMediaVault server, download the latest release and install it via `dpkg`:
 
-bash
-
+```bash
 # Always grabs the newest release, no version number to remember or update
-
 wget https://github.com/snakkarike/openmediavault-themekit/releases/latest/download/openmediavault-themekit_all.deb
 
 # Install the package
-
 sudo dpkg -i openmediavault-themekit_all.deb
 sudo apt-get install -f -y
-
+```
 Once installed, refresh your browser (`Ctrl+Shift+R`) and look for "Theme Kit" under System in the OMV sidebar.
 
 ## Layout
