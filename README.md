@@ -70,13 +70,13 @@ cd ~/openmediavault-themekit
 dpkg-buildpackage -us -uc -b
 ```
 
-This drops `openmediavault-themekit_1.0.0_all.deb` in `~` (one directory up from the source tree). 
+This drops `openmediavault-themekit_1.0.1_all.deb` in `~` (one directory up from the source tree). 
 
 **3. Install it**
 
 ```bash
 cd ~
-sudo dpkg -i openmediavault-themekit_1.0.0_all.deb
+sudo dpkg -i openmediavault-themekit_1.0.1_all.deb
 sudo apt -f install
 ```
 
@@ -114,7 +114,7 @@ cd ..
 
 # 3. Purge the old installation and do a clean install
 sudo apt-get purge openmediavault-themekit -y
-sudo dpkg -i openmediavault-themekit_1.0.0_all.deb
+sudo dpkg -i openmediavault-themekit_1.0.1_all.deb
 sudo apt-get install -f -y
 
 # 4. NUKE Salt's file cache so it doesn't serve the old template
