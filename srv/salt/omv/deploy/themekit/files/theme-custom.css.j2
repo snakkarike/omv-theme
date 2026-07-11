@@ -792,3 +792,10 @@ omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .
     color: var(--color-formInputTextSelected, var(--color-pageText, inherit)) !important;
 }
 {% endif %}
+
+{% if accentSpecialPages | default(false) %}
+/* Use accent color for Login, Authentication, Shutdown and Standby pages by disabling the wallpaper */
+.background {
+    display: none !important;
+}
+{% endif %}

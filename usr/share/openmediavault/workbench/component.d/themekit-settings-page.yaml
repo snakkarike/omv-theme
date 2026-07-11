@@ -136,5 +136,9 @@ data:
               text: _("Pink")
             - value: "rose"
               text: _("Rose")
+      - type: checkbox
+        name: accentSpecialPages
+        label: _("Use accent color for Login, Authentication, Shutdown and Standby pages")
+        value: false
     buttons:
       - template: submit
