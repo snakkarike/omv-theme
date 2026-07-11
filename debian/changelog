@@ -1,3 +1,12 @@
+openmediavault-themekit (1.0.1) stable; urgency=medium
+
+  * Replaced global apt hook with precise dpkg trigger on index.html updates.
+  * Properly seed theme key on fresh installation.
+  * Tightened error handling by halting installation if schema registration fails.
+  * Cleaned up remaining metadata and documentation placeholders.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sat, 11 Jul 2026 12:45:00 +0530
+
 openmediavault-themekit (1.0.0) stable; urgency=medium
 
   * Initial stable release of OpenMediaVault Themekit.
