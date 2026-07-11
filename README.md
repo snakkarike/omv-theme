@@ -1,6 +1,6 @@
 # openmediavault-themekit
 
-An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize the accent color of the UI using a massive Tailwind color palette and a variety of themes. Settings are stored in OMV's config database, and a Salt state renders them into an actual CSS file. An apt hook re-runs that Salt state after every `apt upgrade`, so your theme survives OMV updates.
+An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize the accent color of the UI using a massive Tailwind color palette and a variety of themes. Settings are stored in OMV's config database, and a Salt state renders them into an actual CSS file. A dpkg trigger re-runs that Salt state whenever `openmediavault-webgui` updates `index.html`, so your theme survives OMV updates.
 
 ## Screenshots
 
@@ -26,25 +26,28 @@ An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize th
 
 To install the plugin on your OpenMediaVault server, download the latest release and install it via `dpkg`:
 
-```bash
-# Download the latest 1.0.0 release
-wget https://github.com/snakkarike/openmediavault-themekit/releases/download/v1.0.0/openmediavault-themekit_1.0.0_all.deb
+\`\`\`bash
+
+# Always grabs the newest release, no version number to remember or ~~update~~
+
+wget https://github.com/snakkarike/openmediavault-themekit/releases/latest/download/openmediavault-themekit_all.deb
 
 # Install the package
-sudo dpkg -i openmediavault-themekit_1.0.0_all.deb
+
+sudo dpkg -i openmediavault-themekit_all.deb
 sudo apt-get install -f -y
-```
+\`\`\`
 
 Once installed, refresh your browser (`Ctrl+Shift+R`) and look for "Theme Kit" under System in the OMV sidebar.
 
 ## Layout
 
-- `debian/` - standard Debian packaging (control, rules, postinst, postrm)
-- `usr/share/openmediavault/datamodels/themekit.json` - config schema
-- `usr/share/php/openmediavault/Rpc/ThemeKit.php` - get/set RPC backend
+- `debian/` - standard Debian packaging (control, rules, postinst, postrm, triggers)
+- `usr/share/openmediavault/datamodels/conf.service.themekit.json` - config schema
+- `usr/share/openmediavault/engined/rpc/themekit.inc` - get/set RPC backend
 - `usr/share/openmediavault/workbench/` - YAML manifests for the navigation entry, route, and the settings form page itself
 - `srv/salt/omv/deploy/themekit/` - the Salt state + Jinja CSS template that actually applies the theme to disk
-- `etc/apt/apt.conf.d/85themekit` - persistence hook
+- `debian/openmediavault-themekit.triggers` - dpkg trigger that re-applies the theme whenever `openmediavault-webgui` updates `index.html`
 
 ## Architecture Details
 
