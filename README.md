@@ -2,6 +2,21 @@
 
 An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize the accent color of the UI using a massive Tailwind color palette and a variety of themes. Settings are stored in OMV's config database, and a Salt state renders them into an actual CSS file. An apt hook re-runs that Salt state after every `apt upgrade`, so your theme survives OMV updates.
 
+## Screenshots
+
+| | | |
+|:---:|:---:|:---:|
+| ![alucard-actual](screenshots/alucard.png)<br>[alucard-actual](https://github.com/lelemm/alucard-actual) | ![actual-black-gold-theme](screenshots/blackgold.png)<br>[actual-black-gold-theme](https://github.com/MikesGlitch/actual-black-gold-theme) | ![actual-butterfly-theme](screenshots/butterfly.png)<br>[actual-butterfly-theme](https://github.com/samekh248/actual-butterfly-theme) |
+| ![catppuccin-frappe-actual](screenshots/catppuccinfrappe.png)<br>[catppuccin-frappe-actual](https://github.com/noahjalex/catppuccin-frappe-actual) | ![catppuccin-latte-actual](screenshots/catppuccinlatte.png)<br>[catppuccin-latte-actual](https://github.com/noahjalex/catppuccin-latte-actual) | ![catppuccin-macchiato-actual](screenshots/catppuccinmacchiato.png)<br>[catppuccin-macchiato-actual](https://github.com/noahjalex/catppuccin-macchiato-actual) |
+| ![catppuccin-mocha-actual](screenshots/catppuccinmocha.png)<br>[catppuccin-mocha-actual](https://github.com/noahjalex/catppuccin-mocha-actual) | ![okabe-ito](screenshots/okabeito.png)<br>[okabe-ito](https://github.com/Juulz/okabe-ito) | ![dracula-actual](screenshots/dracula.png)<br>[dracula-actual](https://github.com/lelemm/dracula-actual) |
+| ![gruvbox-dark-actualbudget](screenshots/gruvboxdark.png)<br>[gruvbox-dark-actualbudget](https://github.com/Dakyne/gruvbox-dark-actualbudget) | ![gruvbox-light-actualbudget](screenshots/gruvboxlight.png)<br>[gruvbox-light-actualbudget](https://github.com/Dakyne/gruvbox-light-actualbudget) | ![high-contrast-light](screenshots/highcontrastlight.png)<br>[high-contrast-light](https://github.com/Juulz/high-contrast-light) |
+| ![Ilavenil](screenshots/Ilavenil.png)<br>[Ilavenil](https://github.com/aadhithbala/Ilavenil) | ![actualbudget-matrix-theme](screenshots/matrix.png)<br>[actualbudget-matrix-theme](https://github.com/MatissJanis/actualbudget-matrix-theme) | ![miami-beach](screenshots/miamibeach.png)<br>[miami-beach](https://github.com/Juulz/miami-beach) |
+| ![actual-nord-theme](screenshots/nord.png)<br>[actual-nord-theme](https://github.com/aadhithbala/actual-nord-theme) | ![Notion-Dark-Mode](screenshots/notiondarkmode.png)<br>[Notion-Dark-Mode](https://github.com/vcruzdesigns/Notion-Dark-Mode) | ![rose-pine-actual](screenshots/rosepine.png)<br>[rose-pine-actual](https://github.com/PencilKnot/rose-pine-actual) |
+| ![rose-pine-dawn-actual](screenshots/rosepinedawn.png)<br>[rose-pine-dawn-actual](https://github.com/PencilKnot/rose-pine-dawn-actual) | ![rose-pine-moon-actual](screenshots/rosepinemoon.png)<br>[rose-pine-moon-actual](https://github.com/PencilKnot/rose-pine-moon-actual) | ![shades-of-coffee](screenshots/shadesofcoffee.png)<br>[shades-of-coffee](https://github.com/Juulz/shades-of-coffee) |
+| ![shades-of-gray](screenshots/shadesofgray.png)<br>[shades-of-gray](https://github.com/Juulz/shades-of-gray) | ![simple-dark](screenshots/simpledark.png)<br>[simple-dark](https://github.com/Juulz/simple-dark) | ![1970-theme](screenshots/1970.png)<br>[1970-theme](https://github.com/Juulz/1970-theme) |
+| ![thyrium-actual](screenshots/thyrium.png)<br>[thyrium-actual](https://github.com/carlisle96/thyrium-actual) | ![YNA-Theme-Dark](screenshots/ynadark.png)<br>[YNA-Theme-Dark](https://github.com/Juulz/YNA-Theme-Dark) | ![YNA-Theme-Light](screenshots/ynalight.png)<br>[YNA-Theme-Light](https://github.com/Juulz/YNA-Theme-Light) |
+| ![you-need-a-dark-mode](screenshots/youneedadarkmode.png)<br>[you-need-a-dark-mode](https://github.com/distantvapor/you-need-a-dark-mode) | ![actual-theme-zero-dark](screenshots/zerodark.png)<br>[actual-theme-zero-dark](https://github.com/deathblade666/actual-theme-zero-dark) | |
+
 ## Installation
 
 To install the plugin on your OpenMediaVault server, download the latest release and install it via `dpkg`:

@@ -1,4 +1,5 @@
 :root {
+  --logo-filter: invert(1);
   --alucard-background: #FFFBEB;
   --alucard-background-dark: #CECCC0;
   --alucard-background-darker: #BCBAB3;
