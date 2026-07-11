@@ -5,22 +5,22 @@ An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize th
 ## Screenshots
 
 | | |
-|:---:|:---:|
-| ![default](screenshots/default.png)<br><sub>default</sub><br>![slate](https://img.shields.io/badge/-slate-64748b) ![gray](https://img.shields.io/badge/-gray-6b7280) ![zinc](https://img.shields.io/badge/-zinc-71717a) ![neutral](https://img.shields.io/badge/-neutral-737373) ![stone](https://img.shields.io/badge/-stone-78716c) ![red](https://img.shields.io/badge/-red-ef4444) ![orange](https://img.shields.io/badge/-orange-f97316) ![amber](https://img.shields.io/badge/-amber-f59e0b) ![yellow](https://img.shields.io/badge/-yellow-eab308) ![lime](https://img.shields.io/badge/-lime-84cc16) ![green](https://img.shields.io/badge/-green-22c55e) ![emerald](https://img.shields.io/badge/-emerald-10b981) ![teal](https://img.shields.io/badge/-teal-14b8a6) ![cyan](https://img.shields.io/badge/-cyan-06b6d4) ![sky](https://img.shields.io/badge/-sky-0ea5e9) ![blue](https://img.shields.io/badge/-blue-3b82f6) ![indigo](https://img.shields.io/badge/-indigo-6366f1) ![violet](https://img.shields.io/badge/-violet-8b5cf6) ![purple](https://img.shields.io/badge/-purple-a855f7) ![fuchsia](https://img.shields.io/badge/-fuchsia-d946ef) ![pink](https://img.shields.io/badge/-pink-ec4899) ![rose](https://img.shields.io/badge/-rose-f43f5e) | ![alucard-actual](screenshots/alucard.png)<br><sub>[alucard-actual](https://github.com/lelemm/alucard-actual)</sub> |
-| ![actual-black-gold-theme](screenshots/blackgold.png)<br><sub>[actual-black-gold-theme](https://github.com/MikesGlitch/actual-black-gold-theme)</sub> | ![actual-butterfly-theme](screenshots/butterfly.png)<br><sub>[actual-butterfly-theme](https://github.com/samekh248/actual-butterfly-theme)</sub> |
-| ![catppuccin-frappe-actual](screenshots/catppuccinfrappe.png)<br><sub>[catppuccin-frappe-actual](https://github.com/noahjalex/catppuccin-frappe-actual)</sub> | ![catppuccin-latte-actual](screenshots/catppuccinlatte.png)<br><sub>[catppuccin-latte-actual](https://github.com/noahjalex/catppuccin-latte-actual)</sub> |
-| ![catppuccin-macchiato-actual](screenshots/catppuccinmacchiato.png)<br><sub>[catppuccin-macchiato-actual](https://github.com/noahjalex/catppuccin-macchiato-actual)</sub> | ![catppuccin-mocha-actual](screenshots/catppuccinmocha.png)<br><sub>[catppuccin-mocha-actual](https://github.com/noahjalex/catppuccin-mocha-actual)</sub> |
-| ![okabe-ito](screenshots/okabeito.png)<br><sub>[okabe-ito](https://github.com/Juulz/okabe-ito)</sub> | ![dracula-actual](screenshots/dracula.png)<br><sub>[dracula-actual](https://github.com/lelemm/dracula-actual)</sub> |
-| ![gruvbox-dark-actualbudget](screenshots/gruvboxdark.png)<br><sub>[gruvbox-dark-actualbudget](https://github.com/Dakyne/gruvbox-dark-actualbudget)</sub> | ![gruvbox-light-actualbudget](screenshots/gruvboxlight.png)<br><sub>[gruvbox-light-actualbudget](https://github.com/Dakyne/gruvbox-light-actualbudget)</sub> |
-| ![high-contrast-light](screenshots/highcontrastlight.png)<br><sub>[high-contrast-light](https://github.com/Juulz/high-contrast-light)</sub> | ![Ilavenil](screenshots/Ilavenil.png)<br><sub>[Ilavenil](https://github.com/aadhithbala/Ilavenil)</sub> |
-| ![actualbudget-matrix-theme](screenshots/matrix.png)<br><sub>[actualbudget-matrix-theme](https://github.com/MatissJanis/actualbudget-matrix-theme)</sub> | ![miami-beach](screenshots/miamibeach.png)<br><sub>[miami-beach](https://github.com/Juulz/miami-beach)</sub> |
-| ![actual-nord-theme](screenshots/nord.png)<br><sub>[actual-nord-theme](https://github.com/aadhithbala/actual-nord-theme)</sub> | ![Notion-Dark-Mode](screenshots/notiondarkmode.png)<br><sub>[Notion-Dark-Mode](https://github.com/vcruzdesigns/Notion-Dark-Mode)</sub> |
-| ![rose-pine-actual](screenshots/rosepine.png)<br><sub>[rose-pine-actual](https://github.com/PencilKnot/rose-pine-actual)</sub> | ![rose-pine-dawn-actual](screenshots/rosepinedawn.png)<br><sub>[rose-pine-dawn-actual](https://github.com/PencilKnot/rose-pine-dawn-actual)</sub> |
-| ![rose-pine-moon-actual](screenshots/rosepinemoon.png)<br><sub>[rose-pine-moon-actual](https://github.com/PencilKnot/rose-pine-moon-actual)</sub> | ![shades-of-coffee](screenshots/shadesofcoffee.png)<br><sub>[shades-of-coffee](https://github.com/Juulz/shades-of-coffee)</sub> |
-| ![shades-of-gray](screenshots/shadesofgray.png)<br><sub>[shades-of-gray](https://github.com/Juulz/shades-of-gray)</sub> | ![simple-dark](screenshots/simpledark.png)<br><sub>[simple-dark](https://github.com/Juulz/simple-dark)</sub> |
-| ![1970-theme](screenshots/1970.png)<br><sub>[1970-theme](https://github.com/Juulz/1970-theme)</sub> | ![thyrium-actual](screenshots/thyrium.png)<br><sub>[thyrium-actual](https://github.com/carlisle96/thyrium-actual)</sub> |
-| ![YNA-Theme-Dark](screenshots/ynadark.png)<br><sub>[YNA-Theme-Dark](https://github.com/Juulz/YNA-Theme-Dark)</sub> | ![YNA-Theme-Light](screenshots/ynalight.png)<br><sub>[YNA-Theme-Light](https://github.com/Juulz/YNA-Theme-Light)</sub> |
-| ![you-need-a-dark-mode](screenshots/youneedadarkmode.png)<br><sub>[you-need-a-dark-mode](https://github.com/distantvapor/you-need-a-dark-mode)</sub> | ![actual-theme-zero-dark](screenshots/zerodark.png)<br><sub>[actual-theme-zero-dark](https://github.com/deathblade666/actual-theme-zero-dark)</sub> |
+| ![default](screenshots/default.png)<br><sub>**default**</sub><br>![slate](https://img.shields.io/badge/-slate-64748b) ![gray](https://img.shields.io/badge/-gray-6b7280) ![zinc](https://img.shields.io/badge/-zinc-71717a) ![neutral](https://img.shields.io/badge/-neutral-737373) ![stone](https://img.shields.io/badge/-stone-78716c) ![red](https://img.shields.io/badge/-red-ef4444) ![orange](https://img.shields.io/badge/-orange-f97316) ![amber](https://img.shields.io/badge/-amber-f59e0b) ![yellow](https://img.shields.io/badge/-yellow-eab308) ![lime](https://img.shields.io/badge/-lime-84cc16) ![green](https://img.shields.io/badge/-green-22c55e) ![emerald](https://img.shields.io/badge/-emerald-10b981) ![teal](https://img.shields.io/badge/-teal-14b8a6) ![cyan](https://img.shields.io/badge/-cyan-06b6d4) ![sky](https://img.shields.io/badge/-sky-0ea5e9) ![blue](https://img.shields.io/badge/-blue-3b82f6) ![indigo](https://img.shields.io/badge/-indigo-6366f1) ![violet](https://img.shields.io/badge/-violet-8b5cf6) ![purple](https://img.shields.io/badge/-purple-a855f7) ![fuchsia](https://img.shields.io/badge/-fuchsia-d946ef) ![pink](https://img.shields.io/badge/-pink-ec4899) ![rose](https://img.shields.io/badge/-rose-f43f5e) | |
+| ![alucard-actual](screenshots/alucard.png)<br><sub>[alucard-actual](https://github.com/lelemm/alucard-actual)</sub> | ![actual-black-gold-theme](screenshots/blackgold.png)<br><sub>[actual-black-gold-theme](https://github.com/MikesGlitch/actual-black-gold-theme)</sub> |
+| ![actual-butterfly-theme](screenshots/butterfly.png)<br><sub>[actual-butterfly-theme](https://github.com/samekh248/actual-butterfly-theme)</sub> | ![catppuccin-frappe-actual](screenshots/catppuccinfrappe.png)<br><sub>[catppuccin-frappe-actual](https://github.com/noahjalex/catppuccin-frappe-actual)</sub> |
+| ![catppuccin-latte-actual](screenshots/catppuccinlatte.png)<br><sub>[catppuccin-latte-actual](https://github.com/noahjalex/catppuccin-latte-actual)</sub> | ![catppuccin-macchiato-actual](screenshots/catppuccinmacchiato.png)<br><sub>[catppuccin-macchiato-actual](https://github.com/noahjalex/catppuccin-macchiato-actual)</sub> |
+| ![catppuccin-mocha-actual](screenshots/catppuccinmocha.png)<br><sub>[catppuccin-mocha-actual](https://github.com/noahjalex/catppuccin-mocha-actual)</sub> | ![okabe-ito](screenshots/okabeito.png)<br><sub>[okabe-ito](https://github.com/Juulz/okabe-ito)</sub> |
+| ![dracula-actual](screenshots/dracula.png)<br><sub>[dracula-actual](https://github.com/lelemm/dracula-actual)</sub> | ![gruvbox-dark-actualbudget](screenshots/gruvboxdark.png)<br><sub>[gruvbox-dark-actualbudget](https://github.com/Dakyne/gruvbox-dark-actualbudget)</sub> |
+| ![gruvbox-light-actualbudget](screenshots/gruvboxlight.png)<br><sub>[gruvbox-light-actualbudget](https://github.com/Dakyne/gruvbox-light-actualbudget)</sub> | ![high-contrast-light](screenshots/highcontrastlight.png)<br><sub>[high-contrast-light](https://github.com/Juulz/high-contrast-light)</sub> |
+| ![Ilavenil](screenshots/Ilavenil.png)<br><sub>[Ilavenil](https://github.com/aadhithbala/Ilavenil)</sub> | ![actualbudget-matrix-theme](screenshots/matrix.png)<br><sub>[actualbudget-matrix-theme](https://github.com/MatissJanis/actualbudget-matrix-theme)</sub> |
+| ![miami-beach](screenshots/miamibeach.png)<br><sub>[miami-beach](https://github.com/Juulz/miami-beach)</sub> | ![actual-nord-theme](screenshots/nord.png)<br><sub>[actual-nord-theme](https://github.com/aadhithbala/actual-nord-theme)</sub> |
+| ![Notion-Dark-Mode](screenshots/notiondarkmode.png)<br><sub>[Notion-Dark-Mode](https://github.com/vcruzdesigns/Notion-Dark-Mode)</sub> | ![rose-pine-actual](screenshots/rosepine.png)<br><sub>[rose-pine-actual](https://github.com/PencilKnot/rose-pine-actual)</sub> |
+| ![rose-pine-dawn-actual](screenshots/rosepinedawn.png)<br><sub>[rose-pine-dawn-actual](https://github.com/PencilKnot/rose-pine-dawn-actual)</sub> | ![rose-pine-moon-actual](screenshots/rosepinemoon.png)<br><sub>[rose-pine-moon-actual](https://github.com/PencilKnot/rose-pine-moon-actual)</sub> |
+| ![shades-of-coffee](screenshots/shadesofcoffee.png)<br><sub>[shades-of-coffee](https://github.com/Juulz/shades-of-coffee)</sub> | ![shades-of-gray](screenshots/shadesofgray.png)<br><sub>[shades-of-gray](https://github.com/Juulz/shades-of-gray)</sub> |
+| ![simple-dark](screenshots/simpledark.png)<br><sub>[simple-dark](https://github.com/Juulz/simple-dark)</sub> | ![1970-theme](screenshots/1970.png)<br><sub>[1970-theme](https://github.com/Juulz/1970-theme)</sub> |
+| ![thyrium-actual](screenshots/thyrium.png)<br><sub>[thyrium-actual](https://github.com/carlisle96/thyrium-actual)</sub> | ![YNA-Theme-Dark](screenshots/ynadark.png)<br><sub>[YNA-Theme-Dark](https://github.com/Juulz/YNA-Theme-Dark)</sub> |
+| ![YNA-Theme-Light](screenshots/ynalight.png)<br><sub>[YNA-Theme-Light](https://github.com/Juulz/YNA-Theme-Light)</sub> | ![you-need-a-dark-mode](screenshots/youneedadarkmode.png)<br><sub>[you-need-a-dark-mode](https://github.com/distantvapor/you-need-a-dark-mode)</sub> |
+| ![actual-theme-zero-dark](screenshots/zerodark.png)<br><sub>[actual-theme-zero-dark](https://github.com/deathblade666/actual-theme-zero-dark)</sub> | |
 
 ## Installation
 
@@ -70,7 +70,7 @@ cd ~/openmediavault-themekit
 dpkg-buildpackage -us -uc -b
 ```
 
-This drops `openmediavault-themekit_1.0.1_all.deb` in `~` (one directory up from the source tree). 
+This drops `openmediavault-themekit_1.0.1_all.deb` in `~` (one directory up from the source tree).
 
 **3. Install it**
 
@@ -89,15 +89,15 @@ omv-confdbadm read conf.service.themekit
 omv-rpc "ThemeKit" "get"
 ```
 
-Both should return JSON with `accent: "default"` and `theme: "default"`. 
+Both should return JSON with `accent: "default"` and `theme: "default"`.
 
 **5. Load the UI**
 
-Hard refresh (Ctrl+Shift+R, since `index.html` itself changed) and look for "Theme Kit" under System in the sidebar. 
+Hard refresh (Ctrl+Shift+R, since `index.html` itself changed) and look for "Theme Kit" under System in the sidebar.
 
 ## Development & Upgrading
 
-If you are modifying the code (e.g. editing `theme-custom.css.j2` or `init.sls`) and pushing to GitHub, you **must clear Salt's file cache** on the OMV server before applying the state, or Salt will aggressively serve the old template files. 
+If you are modifying the code (e.g. editing `theme-custom.css.j2` or `init.sls`) and pushing to GitHub, you **must clear Salt's file cache** on the OMV server before applying the state, or Salt will aggressively serve the old template files.
 
 Run this exact sequence to pull changes and force-apply them:
 
