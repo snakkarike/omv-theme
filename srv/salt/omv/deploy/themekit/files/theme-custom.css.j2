@@ -2,6 +2,11 @@
 
 {% if theme != 'default' %}
 {% include "omv/deploy/themekit/files/themes/" ~ theme ~ ".css" ignore missing %}
+
+/* Hide Dark Mode toggle for custom themes because the theme provides its own colors */
+button.mat-menu-item:has(mat-icon[svgicon="mdi:weather-night"]) {
+  display: none !important;
+}
 {% else %}
 :root {
 {%- if accent == "slate" %}
