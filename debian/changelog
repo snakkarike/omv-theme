@@ -1,3 +1,11 @@
+openmediavault-themekit (1.0.2) stable; urgency=medium
+
+  * Added "None (Native OMV)" theme option to disable custom theming entirely.
+  * Restored topbar blur on special pages (Login, Authentication, Shutdown, Standby).
+  * Styled topbar on special pages with a darker shade of the selected accent color.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sun, 12 Jul 2026 16:10:00 +0530
+
 openmediavault-themekit (1.0.1) stable; urgency=medium
 
   * Replaced global apt hook with precise dpkg trigger on index.html updates.
