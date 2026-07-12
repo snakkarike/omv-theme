@@ -17,6 +17,8 @@ data:
         value: default
         store:
           data:
+            - value: "none"
+              text: _("None (Native OMV)")
             - value: "default"
               text: _("Default")
             - value: "alucard"
