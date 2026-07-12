@@ -759,3 +759,11 @@ omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .
     background-image: none !important;
 }
 {% endif %}
+
+/* Apply a darker theme accent to the topbar on special pages */
+omv-login-page .topbar,
+omv-authentication-page .topbar,
+omv-shutdown-page .topbar,
+omv-standby-page .topbar {
+    background-color: color-mix(in srgb, var(--theme-primary) 80%, black) !important;
+}
