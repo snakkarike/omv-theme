@@ -30,8 +30,19 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
 
         $db = Database::getInstance();
         $object = $db->get("conf.service.themekit");
-
-        return $object->getAssoc();
+        $assoc = $object->getAssoc();
+        
+        // Fallback: If customCss is empty in database, try to load existing file contents
+        if (empty($assoc['customCss'])) {
+            $css_file = "/var/www/openmediavault/assets/user-custom.css";
+            if (file_exists($css_file)) {
+                $content = file_get_contents($css_file);
+                $content = str_replace("/* Custom CSS from ThemeKit */\n", "", $content);
+                $assoc['customCss'] = trim($content);
+            }
+        }
+        
+        return $assoc;
     }
 
     public function set($params, $context)

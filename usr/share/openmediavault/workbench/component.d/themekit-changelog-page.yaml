@@ -71,5 +71,5 @@ data:
            -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sat, 11 Jul 2026 00:45:00 +0530
 
         modifiers:
-          - type: readonly
+          - type: disabled
 buttons: []
