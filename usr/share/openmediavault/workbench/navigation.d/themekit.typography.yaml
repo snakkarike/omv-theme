@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: 'system.themekit.typography'
+  text: _('Typography')
+  position: 20
+  icon: 'mdi:format-font'
+  url: '/system/themekit/typography'

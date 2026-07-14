@@ -1,8 +1,0 @@
-version: "1.0"
-type: navigation-item
-data:
-  path: 'system.themekit.about'
-  text: _('About')
-  position: 20
-  icon: 'mdi:information-outline'
-  url: '/system/themekit/about'

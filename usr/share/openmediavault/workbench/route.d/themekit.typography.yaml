@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: '/system/themekit/typography'
+  component: 'themekit-typography-page'
+  title: _('System > ThemeKit > Typography')

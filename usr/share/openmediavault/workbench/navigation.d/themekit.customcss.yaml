@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: 'system.themekit.customcss'
+  text: _('Custom CSS')
+  position: 30
+  icon: 'mdi:language-css3'
+  url: '/system/themekit/customcss'

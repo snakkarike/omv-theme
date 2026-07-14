@@ -84,6 +84,9 @@
         "customFont": {
             "type": "string"
         },
+        "customCss": {
+            "type": "string"
+        },
         "fontCategory": {
             "type": "string"
         },

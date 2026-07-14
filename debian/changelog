@@ -1,7 +1,9 @@
 openmediavault-themekit (1.0.3) stable; urgency=medium
 
-  * Added tabs to the ThemeKit settings page for Settings, About, and Update.
-  * Added custom Google Fonts support and base font size to Settings page.
+  * Restructured Settings page into distinct tabs: Settings, Typography, Custom CSS, Changelog, and Update.
+  * Added comprehensive Google Fonts integration (categorized by font style) and base font size configuration.
+  * Introduced Custom CSS feature allowing users to inject high-priority CSS overrides directly from the UI.
+  * Improved backend deployment by generating user custom CSS dynamically via Salt and injecting into the HTML.
   * Added missing icons for navigation tabs.
   * Fixed font overriding by aggressively targeting OMV typography classes.
 

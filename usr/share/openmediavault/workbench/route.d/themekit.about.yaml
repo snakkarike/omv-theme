@@ -1,6 +1,0 @@
-version: "1.0"
-type: route
-data:
-  url: "/system/themekit/about"
-  title: _("About")
-  component: themekit-about-page

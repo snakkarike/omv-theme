@@ -1,0 +1,25 @@
+version: "1.0"
+type: component
+data:
+  name: themekit-customcss-page
+  type: formPage
+  config:
+    request:
+      service: ThemeKit
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: paragraph
+        text: _("Enter any custom CSS below. These styles will be applied with the highest priority and will override any standard theme styling.")
+      - type: textarea
+        name: customCss
+        label: _("Custom CSS")
+        hint: '_("e.g. body { background-color: #000 !important; }")'
+        rows: 20
+        modifiers:
+          - type: cssClass
+            cssClass: "omv-font-monospace"
+    buttons:
+      - template: submit

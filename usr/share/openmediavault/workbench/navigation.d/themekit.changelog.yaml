@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: 'system.themekit.changelog'
+  text: _('Changelog')
+  position: 40
+  icon: 'mdi:clipboard-text-clock'
+  url: '/system/themekit/changelog'

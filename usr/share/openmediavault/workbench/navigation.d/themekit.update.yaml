@@ -3,6 +3,6 @@ type: navigation-item
 data:
   path: 'system.themekit.update'
   text: _('Update')
-  position: 30
+  position: 50
   icon: 'mdi:update'
   url: '/system/themekit/update'
