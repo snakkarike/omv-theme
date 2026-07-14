@@ -20,6 +20,14 @@ theme_custom_css:
         customFont: {{ config.customFont }}
         baseFontSize: {{ config.baseFontSize }}
 
+download_google_font:
+  cmd.script:
+    - name: salt://omv/deploy/themekit/files/download_font.py
+    - template: jinja
+    - args: '"{{ config.customFont }}"'
+    - env:
+      - PYTHONUNBUFFERED: "1"
+
 # index.html IS a tracked package file and gets replaced wholesale on
 # every openmediavault-webgui update, so this patch must be idempotent
 # and re-applied every time this state runs (postinst + apt hook both
@@ -29,7 +37,7 @@ patch_index_html:
   cmd.run:
     - name: >
         sed -i -e 's#<link rel="stylesheet" href="assets/theme-custom.css[^>]*>##g' {{ webroot }}/index.html &&
-        sed -i 's#</head>#<link rel="stylesheet" href="assets/theme-custom.css?v='$(date +%s)'">\n</head>#' {{ webroot }}/index.html
+        sed -i -e 's#<link rel="stylesheet" href="assets/theme-font.css[^>]*>##g' {{ webroot }}/index.html &&
+        sed -i 's#</head>#<link rel="stylesheet" href="assets/theme-font.css?v='$(date +%s)'">\n<link rel="stylesheet" href="assets/theme-custom.css?v='$(date +%s)'">\n</head>#' {{ webroot }}/index.html
     - require:
       - file: theme_custom_css
-
