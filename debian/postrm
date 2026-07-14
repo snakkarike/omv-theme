@@ -6,7 +6,7 @@ WEBROOT="/var/www/openmediavault"
 
 case "$1" in
     purge)
-        omv-confdbadm delete "conf.service.themekit" || true
+        omv-confdbadm delete "conf.service.themekit" 2>/dev/null || true
 
         # Remove our injected <link> from index.html. Package upgrades
         # already replace this file wholesale, so this mainly matters
