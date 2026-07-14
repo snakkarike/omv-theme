@@ -35,6 +35,8 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        hasSearchField: true
+        filterable: true
         modifiers:
           - type: hidden
             constraint:
@@ -3213,6 +3215,8 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        hasSearchField: true
+        filterable: true
         modifiers:
           - type: hidden
             constraint:
@@ -4421,6 +4425,8 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        hasSearchField: true
+        filterable: true
         modifiers:
           - type: hidden
             constraint:
@@ -5073,6 +5079,8 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        hasSearchField: true
+        filterable: true
         modifiers:
           - type: hidden
             constraint:
@@ -5883,6 +5891,8 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        hasSearchField: true
+        filterable: true
         modifiers:
           - type: hidden
             constraint:
@@ -6353,6 +6363,8 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        hasSearchField: true
+        filterable: true
         modifiers:
           - type: hidden
             constraint:
