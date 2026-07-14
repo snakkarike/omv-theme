@@ -4,6 +4,10 @@ data:
   name: themekit-changelog-page
   type: formPage
   config:
+    request:
+      service: ThemeKit
+      get:
+        method: get
     fields:
       - type: textarea
         name: changelog_view
@@ -60,3 +64,7 @@ data:
           
         modifiers:
           - type: readonly
+    buttons:
+      - template: submit
+        modifiers:
+          - type: hidden
