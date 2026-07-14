@@ -56,7 +56,13 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
 
         $db = Database::getInstance();
         $object = $db->get("conf.service.themekit");
-        $object->setAssoc($params);
+        
+        // Merge the incoming parameters with the existing configuration to prevent wiping out fields
+        // from other tabs when submitting a partial form (e.g. saving Typography without Settings)
+        $existing = $object->getAssoc();
+        $merged = array_merge($existing, $params);
+        
+        $object->setAssoc($merged);
         $db->set($object);
         syslog(LOG_INFO, "ThemeKit object after setAssoc: " . json_encode($object->getAssoc()));
 
