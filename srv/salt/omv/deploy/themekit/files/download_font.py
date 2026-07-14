@@ -5,6 +5,7 @@ import re
 import os
 import shutil
 import ssl
+import json
 
 def log(msg):
     # Log to a file so the user can debug if needed
@@ -20,11 +21,28 @@ def main():
     font_name = sys.argv[1].strip(' "\'')
     active_css = "/var/www/openmediavault/assets/theme-font.css"
     fonts_dir = "/var/www/openmediavault/assets/fonts"
+    PLUGIN_DIR = "/usr/share/openmediavault/scripts/themekit"
     
     if not font_name or font_name.lower() == "none":
         with open(active_css, "w") as f:
             f.write("")
         log("Font cleared.")
+        return
+
+    with open(f'{PLUGIN_DIR}/google-fonts.json', 'r') as f:
+        fonts_db = json.load(f)
+        
+    font_data = None
+    if isinstance(fonts_db, list):
+        for font in fonts_db:
+            if font.get('family') == font_name:
+                font_data = font
+                break
+    else:
+        font_data = fonts_db.get(font_name)
+
+    if not font_data:
+        log(f"Error: Font '{font_name}' not found in database.")
         return
 
     os.makedirs(fonts_dir, exist_ok=True)
