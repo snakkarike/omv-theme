@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: 'system.themekit.settings'
+  text: _('Settings')
+  position: 10
+  url: '/system/themekit/settings'

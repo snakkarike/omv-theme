@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: 'system.themekit.about'
+  text: _('About')
+  position: 20
+  url: '/system/themekit/about'
