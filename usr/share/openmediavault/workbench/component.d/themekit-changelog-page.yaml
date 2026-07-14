@@ -16,10 +16,16 @@ data:
         value: |
           openmediavault-themekit (1.0.4) stable; urgency=medium
 
+            * SECURITY: Fixed severe shell injection vulnerability in `download_font.py` by passing dynamic font names via environment variables (`THEMEKIT_ACTIVE_FONT`) instead of shell arguments from Salt.
+            * SECURITY: Enforced strict TLS verification for Google Fonts API and font file downloads to prevent MITM attacks.
+            * SECURITY: Hardened `download_font.py` against path traversal vulnerabilities by enforcing strict directory bounds checking (`os.path.abspath`) when writing downloaded font files.
+            * SECURITY: Moved font download logs from world-writable `/tmp` to dedicated `/var/log/themekit` directory to prevent symlink races.
+            * SECURITY: Fully URL-encoded font names (`urllib.parse.quote_plus`) when querying the Google Fonts API.
             * Updated Google Fonts list to include 1900+ fonts (including Geist and Geist Mono) and increased default base font size to 16.
             * Converted changelog view to a readable, tall scrollable text area without a save button.
             * Improved font downloading script to handle updated font database schema.
             * Added python-based database migration script to guarantee custom CSS and fonts load/save properly on upgrades.
+            * Fixed redundant breadcrumb trails (System > Theme Kit > Typography) across all navigation tabs.
 
            -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 16:50:00 +0530
 

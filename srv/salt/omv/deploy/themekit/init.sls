@@ -51,9 +51,9 @@ download_google_font:
   cmd.script:
     - name: salt://omv/deploy/themekit/files/download_font.py
     - template: jinja
-    - args: '"{{ active_font }}"'
     - env:
       - PYTHONUNBUFFERED: "1"
+      - THEMEKIT_ACTIVE_FONT: {{ active_font | json }}
 
 # index.html IS a tracked package file and gets replaced wholesale on
 # every openmediavault-webgui update, so this patch must be idempotent

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import urllib.request
+import urllib.parse
 import re
 import os
 import shutil
@@ -9,21 +10,24 @@ import json
 
 def log(msg):
     # Log to a file so the user can debug if needed
-    with open("/tmp/themekit_font_download.log", "a") as f:
+    log_dir = "/var/log/themekit"
+    os.makedirs(log_dir, exist_ok=True)
+    with open(f"{log_dir}/font_download.log", "a") as f:
         f.write(msg + "\n")
 
 def main():
-    if len(sys.argv) < 2:
-        log("No arguments provided.")
+    # Read font from environment to prevent shell injection vulnerabilities
+    font_name = os.environ.get('THEMEKIT_ACTIVE_FONT', '').strip(' "\'')
+    
+    if not font_name:
+        log("No font provided in environment.")
         return
         
-    # Strip any extra quotes that Salt might have passed
-    font_name = sys.argv[1].strip(' "\'')
     active_css = "/var/www/openmediavault/assets/theme-font.css"
     fonts_dir = "/var/www/openmediavault/assets/fonts"
     PLUGIN_DIR = "/usr/share/openmediavault/scripts/themekit"
     
-    if not font_name or font_name.lower() == "none":
+    if font_name.lower() == "none":
         with open(active_css, "w") as f:
             f.write("")
         log("Font cleared.")
@@ -56,7 +60,8 @@ def main():
         return
 
     # Use a simpler query that works for all fonts without triggering 400 Bad Request for unsupported weights
-    font_url = f"https://fonts.googleapis.com/css?family={font_name.replace(' ', '+')}&display=swap"
+    encoded_font = urllib.parse.quote_plus(font_name)
+    font_url = f"https://fonts.googleapis.com/css?family={encoded_font}&display=swap"
     log(f"Fetching CSS from: {font_url}")
     
     headers = {
@@ -65,8 +70,9 @@ def main():
     
     req = urllib.request.Request(font_url, headers=headers)
     ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
+    # Enforce strict TLS verification
+    ctx.check_hostname = True
+    ctx.verify_mode = ssl.CERT_REQUIRED
 
     try:
         response = urllib.request.urlopen(req, context=ctx)
@@ -80,9 +86,16 @@ def main():
     log(f"Found {len(urls)} font files to download.")
     
     for url in urls:
-        filename = url.split('/')[-1]
-        local_path = os.path.join(fonts_dir, filename)
-        
+        parsed_url = urllib.parse.urlparse(url)
+        filename = os.path.basename(parsed_url.path)
+        if not filename:
+            continue
+            
+        local_path = os.path.abspath(os.path.join(fonts_dir, filename))
+        if not local_path.startswith(os.path.abspath(fonts_dir)):
+            log(f"Security Error: Path traversal attempt blocked for {filename}")
+            continue
+            
         if not os.path.exists(local_path):
             try:
                 font_req = urllib.request.Request(url, headers=headers)
