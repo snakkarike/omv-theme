@@ -13,14 +13,15 @@
 body, .mat-typography, 
 .mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4, .mat-typography h5, .mat-typography h6,
 .mat-typography .mat-h1, .mat-typography .mat-h2, .mat-typography .mat-h3, .mat-typography .mat-h4, .mat-typography .mat-h5, .mat-typography .mat-h6,
-.mat-typography .mat-subheading-2, .mat-typography .mat-subheading-1,
+.mat-typography .mat-headline, .mat-typography .mat-title, .mat-typography .mat-subheading-2, .mat-typography .mat-subheading-1,
+.mat-typography .mat-body-strong, .mat-typography .mat-body-2, .mat-typography .mat-body, .mat-typography .mat-body-1,
 .mat-h1, .mat-h2, .mat-h3, .mat-h4, .mat-h5, .mat-h6,
-.mat-subheading-2, .mat-subheading-1,
+.mat-headline, .mat-title, .mat-subheading-2, .mat-subheading-1,
 .mat-body-strong, .mat-body-2, .mat-body, .mat-body-1,
 .mat-button, .mat-menu-item, .mat-option, .mat-tab-label,
 .mat-card, .mat-list-item, .mat-table, .mat-header-cell, .mat-cell,
 .ngx-datatable, .toast-container, button, input, select, textarea,
-.mat-form-field-infix, .omv-top-bar .hostname {
+.mat-form-field, .mat-form-field-infix, .mat-checkbox, .mat-button-toggle, .omv-top-bar .hostname {
   {%- if (customFont | string | lower) not in ['', 'none'] %}
   font-family: var(--theme-font-family) !important;
   {%- endif %}
