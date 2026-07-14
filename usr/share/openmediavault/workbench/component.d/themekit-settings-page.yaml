@@ -149,5 +149,50 @@ data:
               arg0:
                 prop: theme
               arg1: none
+      - type: select
+        name: customFont
+        label: _("Custom Google Font")
+        hint: _("Select a font to apply globally across the interface.")
+        value: ""
+        store:
+          data:
+            - value: ""
+              text: _("System Default (None)")
+            - value: "Roboto"
+              text: _("Roboto")
+            - value: "Open Sans"
+              text: _("Open Sans")
+            - value: "Inter"
+              text: _("Inter")
+            - value: "Lato"
+              text: _("Lato")
+            - value: "Montserrat"
+              text: _("Montserrat")
+            - value: "Poppins"
+              text: _("Poppins")
+            - value: "Oswald"
+              text: _("Oswald")
+            - value: "Raleway"
+              text: _("Raleway")
+            - value: "Nunito"
+              text: _("Nunito")
+            - value: "Ubuntu"
+              text: _("Ubuntu")
+            - value: "Playfair Display"
+              text: _("Playfair Display")
+            - value: "Merriweather"
+              text: _("Merriweather")
+            - value: "Fira Code"
+              text: _("Fira Code (Monospace)")
+            - value: "Outfit"
+              text: _("Outfit")
+      - type: numberInput
+        name: baseFontSize
+        label: _("Base Font Size (px)")
+        hint: _("Default is usually 14. Set to 0 to use system default.")
+        value: 14
+        validators:
+          min: 0
+          max: 30
     buttons:
       - template: submit

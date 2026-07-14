@@ -52,6 +52,14 @@
         "accentSpecialPages": {
             "type": "boolean",
             "default": false
+        },
+        "customFont": {
+            "type": "string",
+            "default": ""
+        },
+        "baseFontSize": {
+            "type": "integer",
+            "default": 14
         }
     }
 }

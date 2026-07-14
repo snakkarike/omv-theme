@@ -17,6 +17,8 @@ theme_custom_css:
         theme: {{ config.theme }}
         accent: {{ config.accent }}
         accentSpecialPages: {{ config.accentSpecialPages }}
+        customFont: {{ config.customFont }}
+        baseFontSize: {{ config.baseFontSize }}
 
 # index.html IS a tracked package file and gets replaced wholesale on
 # every openmediavault-webgui update, so this patch must be idempotent
