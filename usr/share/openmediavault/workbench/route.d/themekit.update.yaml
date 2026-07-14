@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/system/themekit/update"
+  title: _("Update")
+  component: themekit-update-page

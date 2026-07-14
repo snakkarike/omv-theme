@@ -1,0 +1,9 @@
+version: "1.0"
+type: component
+data:
+  name: themekit-update-page
+  type: formPage
+  config:
+    fields:
+      - type: paragraph
+        text: _("Option to update the plugin will be added here.")

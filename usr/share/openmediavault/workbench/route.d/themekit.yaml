@@ -3,6 +3,4 @@ type: route
 data:
   url: "/system/themekit"
   title: _("Theme Kit")
-  editing: true
-  notificationTitle: _("Updated Theme Kit settings.")
-  component: themekit-settings-page
+  component: themekit-navigation-page

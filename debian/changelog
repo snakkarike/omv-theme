@@ -1,3 +1,9 @@
+openmediavault-themekit (1.0.3) stable; urgency=medium
+
+  * Added tabs to the ThemeKit settings page for Settings, About, and Update.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 14:04:27 +0530
+
 openmediavault-themekit (1.0.2) stable; urgency=medium
 
   * Added "None (Native OMV)" theme option to disable custom theming entirely.
