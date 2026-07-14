@@ -8,16 +8,19 @@ case "$1" in
     purge)
         omv-confdbadm delete "conf.service.themekit" 2>/dev/null || true
 
-        # Remove our injected <link> from index.html. Package upgrades
+        # Remove our injected <link>s from index.html. Package upgrades
         # already replace this file wholesale, so this mainly matters
         # if the box goes straight from purge to a fresh
         # openmediavault-webgui reconfigure without an intervening
         # package update.
-        sed -i '/theme-custom\.css/d' "$WEBROOT/index.html" 2>/dev/null || true
+        sed -i -e 's#<link rel="stylesheet" href="assets/theme-custom.css[^>]*>##g' "$WEBROOT/index.html" 2>/dev/null || true
+        sed -i -e 's#<link rel="stylesheet" href="assets/theme-font.css[^>]*>##g' "$WEBROOT/index.html" 2>/dev/null || true
+        sed -i -e 's#<link rel="stylesheet" href="assets/user-custom.css[^>]*>##g' "$WEBROOT/index.html" 2>/dev/null || true
 
         rm -f "$WEBROOT/assets/theme-custom.css"
-
-        ;;
+        rm -f "$WEBROOT/assets/theme-font.css"
+        rm -f "$WEBROOT/assets/user-custom.css"
+        rm -rf "$WEBROOT/assets/fonts"        ;;
 esac
 
 #DEBHELPER#
