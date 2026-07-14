@@ -1,10 +1,11 @@
 openmediavault-themekit (1.0.4) stable; urgency=medium
 
-  * Updated Google Fonts list to include 1900+ fonts (including Geist and Geist Mono).
-  * Converted changelog view to a readable, scrollable text area.
+  * Updated Google Fonts list to include 1900+ fonts (including Geist and Geist Mono) and increased default base font size to 16.
+  * Converted changelog view to a readable, tall scrollable text area without a save button.
   * Improved font downloading script to handle updated font database schema.
+  * Added python-based database migration script to guarantee custom CSS and fonts load/save properly on upgrades.
 
- -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 16:30:00 +0530
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 16:50:00 +0530
 
 openmediavault-themekit (1.0.3) stable; urgency=medium
 

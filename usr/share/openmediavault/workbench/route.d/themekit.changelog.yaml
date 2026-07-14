@@ -3,4 +3,4 @@ type: route
 data:
   url: '/system/themekit/changelog'
   component: 'themekit-changelog-page'
-  title: _('System > ThemeKit > Changelog')
+  title: _('Changelog')

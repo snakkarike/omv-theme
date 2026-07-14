@@ -7933,8 +7933,8 @@ data:
       - type: numberInput
         name: baseFontSize
         label: _("Base Font Size (px)")
-        hint: _("Base font size for the interface. Default is 14. Adjusting this will scale all text.")
-        value: 14
+        hint: _("Base font size for the interface. Default is 16. Adjusting this will scale all text.")
+        value: 16
         validators:
           min: 10
           max: 24

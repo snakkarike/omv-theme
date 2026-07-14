@@ -3,4 +3,4 @@ type: route
 data:
   url: '/system/themekit/customcss'
   component: 'themekit-customcss-page'
-  title: _('System > ThemeKit > Custom CSS')
+  title: _('Custom CSS')

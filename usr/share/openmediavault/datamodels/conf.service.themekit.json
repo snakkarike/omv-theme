@@ -79,7 +79,7 @@
         },
         "baseFontSize": {
             "type": "integer",
-            "default": 14
+            "default": 16
         },
         "customFont": {
             "type": "string",

@@ -17,6 +17,51 @@ case "$1" in
         # Register (or update) the config database schema for this plugin.
         omv-confdbadm create "conf.service.themekit"
 
+        # Ensure all new schema properties exist in the XML database so RPC works correctly
+        # We use Python and omv-confdbadm to guarantee compatibility without xmlstarlet
+        CURRENT_CONF=$(omv-confdbadm read "conf.service.themekit" 2>/dev/null || echo "{}")
+        NEW_CONF=$(python3 -c "
+import json, sys
+try:
+    data = json.loads(sys.argv[1])
+    if isinstance(data, list) and len(data) > 0:
+        data = data[0]
+    elif isinstance(data, list):
+        data = {}
+        
+    defaults = {
+        'baseFontSize': 16,
+        'fontCategory': 'all',
+        'customCss': '',
+        'customFont_all': '',
+        'customFont_sans_serif': '',
+        'customFont_serif': '',
+        'customFont_display': '',
+        'customFont_handwriting': '',
+        'customFont_monospace': ''
+    }
+    
+    dirty = False
+    for k, v in defaults.items():
+        if k == 'baseFontSize' and (k not in data or not str(data.get(k, '')).isdigit()):
+            data[k] = v
+            dirty = True
+        elif k not in data:
+            data[k] = v
+            dirty = True
+            
+    if dirty:
+        print(json.dumps(data))
+    else:
+        print('NOT_DIRTY')
+except Exception as e:
+    print('NOT_DIRTY')
+" "$CURRENT_CONF")
+
+        if [ "$NEW_CONF" != "NOT_DIRTY" ] && [ -n "$NEW_CONF" ]; then
+            omv-confdbadm update "conf.service.themekit" "$NEW_CONF" || true
+        fi
+
         # Render the CSS based on current settings.
         omv-salt deploy run themekit || true
 
