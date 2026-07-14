@@ -9,11 +9,8 @@ data:
       get:
         method: get
     fields:
-      - type: textInput
-        name: updateInfo
-        label: _("Status")
-        value: _("Option to update the plugin will be added here.")
-        readonly: true
+      - type: divider
+        title: _("Option to update the plugin will be added here.")
     buttons:
       - template: submit
         modifiers:

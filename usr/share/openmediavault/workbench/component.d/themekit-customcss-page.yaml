@@ -4,7 +4,6 @@ data:
   name: themekit-customcss-page
   type: formPage
   config:
-    subTitle: _("Enter any custom CSS below. These styles will be applied with the highest priority and will override any standard theme styling.")
     request:
       service: ThemeKit
       get:
@@ -12,6 +11,8 @@ data:
       post:
         method: set
     fields:
+      - type: divider
+        title: _("Enter any custom CSS below. These styles will be applied with the highest priority and will override any standard theme styling.")
       - type: textarea
         name: customCss
         label: _("Custom CSS")
