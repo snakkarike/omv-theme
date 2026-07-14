@@ -1,15 +1,11 @@
-openmediavault-themekit (1.0.4) stable; urgency=medium
-
-  * Added custom Google Fonts support and base font size to Settings page.
-  * Added missing icons for navigation tabs.
-
- -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 14:24:21 +0530
-
 openmediavault-themekit (1.0.3) stable; urgency=medium
 
   * Added tabs to the ThemeKit settings page for Settings, About, and Update.
+  * Added custom Google Fonts support and base font size to Settings page.
+  * Added missing icons for navigation tabs.
+  * Fixed font overriding by aggressively targeting OMV typography classes.
 
- -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 14:04:27 +0530
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 14:35:00 +0530
 
 openmediavault-themekit (1.0.2) stable; urgency=medium
 

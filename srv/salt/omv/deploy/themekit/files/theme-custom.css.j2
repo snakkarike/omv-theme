@@ -14,7 +14,13 @@
 }
 
 {% if customFont | default('') != '' or baseFontSize | default(14) > 0 %}
-html, body, .mat-typography, .mat-body, .mat-button, .mat-menu-item, .mat-option, .mat-tab-label {
+body, .mat-typography, 
+.mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4, .mat-typography h5, .mat-typography h6,
+.mat-h1, .mat-h2, .mat-h3, .mat-h4, .mat-h5, .mat-h6,
+.mat-body-strong, .mat-body-2, .mat-body, .mat-body-1,
+.mat-button, .mat-menu-item, .mat-option, .mat-tab-label,
+.mat-card, .mat-list-item, .mat-table, .mat-header-cell, .mat-cell,
+.ngx-datatable, .toast-container, button, input, select, textarea {
   {%- if customFont | default('') != '' %}
   font-family: var(--theme-font-family) !important;
   {%- endif %}
