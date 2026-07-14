@@ -10,6 +10,9 @@ openmediavault-themekit (1.0.4) stable; urgency=medium
   * Improved font downloading script to handle updated font database schema.
   * Added python-based database migration script to guarantee custom CSS and fonts load/save properly on upgrades.
   * Fixed redundant breadcrumb trails (System > Theme Kit > Typography) across all navigation tabs.
+  * Fixed UI layout by utilizing native divider components for section titles instead of empty paragraphs across all plugin pages.
+  * Corrected YAML syntax issues in form definitions preventing successful workbench compilation (omv-mkworkbench).
+  * Adjusted base font size validation to allow a more reasonable range (10px to 24px).
 
  -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 16:50:00 +0530
 
