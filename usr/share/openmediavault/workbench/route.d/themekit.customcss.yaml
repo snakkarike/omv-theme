@@ -4,3 +4,5 @@ data:
   url: '/system/themekit/customcss'
   component: 'themekit-customcss-page'
   title: _('Custom CSS')
+  editing: true
+  notificationTitle: _("Updated Custom CSS settings.")

@@ -18,6 +18,9 @@ data:
         label: _("Custom CSS")
         hint: '_("e.g. body { background-color: #000 !important; }")'
         rows: 20
+        modifiers:
+          - type: cssClass
+            cssClass: "omv-font-monospace"
 
     buttons:
       - template: submit

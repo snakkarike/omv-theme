@@ -4,3 +4,5 @@ data:
   url: '/system/themekit/typography'
   component: 'themekit-typography-page'
   title: _('Typography')
+  editing: true
+  notificationTitle: _("Updated Typography settings.")

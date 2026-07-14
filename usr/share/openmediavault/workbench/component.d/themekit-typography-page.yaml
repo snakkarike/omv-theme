@@ -35,6 +35,13 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: ne
+              arg0:
+                prop: fontCategory
+              arg1: "all"
         store:
           data:
             - value: ""
@@ -3946,6 +3953,13 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: ne
+              arg0:
+                prop: fontCategory
+              arg1: "sans-serif"
         store:
           data:
             - value: ""
@@ -5389,6 +5403,13 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: ne
+              arg0:
+                prop: fontCategory
+              arg1: "serif"
         store:
           data:
             - value: ""
@@ -6096,6 +6117,13 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: ne
+              arg0:
+                prop: fontCategory
+              arg1: "display"
         store:
           data:
             - value: ""
@@ -7039,6 +7067,13 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: ne
+              arg0:
+                prop: fontCategory
+              arg1: "handwriting"
         store:
           data:
             - value: ""
@@ -7764,6 +7799,13 @@ data:
         label: _("Custom Google Font")
         hint: _("Select a font to apply globally across the interface.")
         value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: ne
+              arg0:
+                prop: fontCategory
+              arg1: "monospace"
         store:
           data:
             - value: ""
@@ -7893,6 +7935,9 @@ data:
         label: _("Base Font Size (px)")
         hint: _("Base font size for the interface. Default is 16. Adjusting this will scale all text.")
         value: 16
+        validators:
+          min: 10
+          max: 24
     buttons:
       - template: submit
 
