@@ -81,6 +81,9 @@
             "type": "integer",
             "default": 14
         },
+        "customFont": {
+            "type": "string"
+        },
         "fontCategory": {
             "type": "string"
         },
