@@ -4,14 +4,59 @@ data:
   name: themekit-changelog-page
   type: formPage
   config:
-    request:
-      service: ThemeKit
-      get:
-        method: get
     fields:
-      - type: paragraph
-        text: '_("openmediavault-themekit (1.0.3) stable; urgency=medium<br><br>  * Restructured Settings page into distinct tabs: Settings, Typography, Custom CSS, Changelog, and Update.<br>  * Added comprehensive Google Fonts integration (categorized by font style) and base font size configuration.<br>  * Introduced Custom CSS feature allowing users to inject high-priority CSS overrides directly from the UI.<br>  * Improved backend deployment by generating user custom CSS dynamically via Salt and injecting into the HTML.<br>  * Added missing icons for navigation tabs.<br>  * Fixed font overriding by aggressively targeting OMV typography classes.<br><br> -- Saurabh Nakkarike &lt;gradelabsin@gmail.com&gt;  Tue, 14 Jul 2026 14:35:00 +0530<br><br>openmediavault-themekit (1.0.2) stable; urgency=medium<br><br>  * Added &quot;None (Native OMV)&quot; theme option to disable custom theming entirely.<br>  * Restored topbar blur on special pages (Login, Authentication, Shutdown, Standby).<br>  * Styled topbar on special pages with a darker shade of the selected accent color.<br><br> -- Saurabh Nakkarike &lt;gradelabsin@gmail.com&gt;  Sun, 12 Jul 2026 16:10:00 +0530<br><br>openmediavault-themekit (1.0.1) stable; urgency=medium<br><br>  * Replaced global apt hook with precise dpkg trigger on index.html updates.<br>  * Properly seed theme key on fresh installation.<br>  * Tightened error handling by halting installation if schema registration fails.<br>  * Cleaned up remaining metadata and documentation placeholders.<br><br> -- Saurabh Nakkarike &lt;gradelabsin@gmail.com&gt;  Sat, 11 Jul 2026 12:45:00 +0530<br><br>openmediavault-themekit (1.0.0) stable; urgency=medium<br><br>  * Initial stable release of OpenMediaVault Themekit.<br>  * Added extensive collection of pre-configured themes (Catppuccin, Rose Pine, Gruvbox, Nord, Dracula, etc.).<br>  * Added dynamic styling engine with fallback variables to ensure uniform UI scaling across custom themes.<br>  * Fixed contrast issues for dropdowns, popover menus, and sidebar list items in both light and dark modes.<br>  * Implemented dynamic logo inversion for themes with lighter backgrounds.<br>  * Corrected active list item backgrounds and icon color inheritances for seamless integration with Angular Material UI.<br>  * Included Salt deploy modules and APT hooks to guarantee UI state persistence across system updates.<br>  * Developed Settings page for effortlessly toggling themes and accents.<br><br> -- Saurabh Nakkarike &lt;gradelabsin@gmail.com&gt;  Sat, 11 Jul 2026 00:45:00 +0530<br>")'
-    buttons:
-      - template: submit
+      - type: textarea
+        name: changelog_view
+        label: _("Release History")
+        value: |
+          openmediavault-themekit (1.0.4) stable; urgency=medium
+          
+            * Updated Google Fonts list to include 1900+ fonts (including Geist and Geist Mono).
+            * Converted changelog view to a readable, scrollable text area.
+            * Improved font downloading script to handle updated font database schema.
+          
+           -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 16:30:00 +0530
+          
+          openmediavault-themekit (1.0.3) stable; urgency=medium
+          
+            * Restructured Settings page into distinct tabs: Settings, Typography, Custom CSS, Changelog, and Update.
+            * Added comprehensive Google Fonts integration (categorized by font style) and base font size configuration.
+            * Introduced Custom CSS feature allowing users to inject high-priority CSS overrides directly from the UI.
+            * Improved backend deployment by generating user custom CSS dynamically via Salt and injecting into the HTML.
+            * Added missing icons for navigation tabs.
+            * Fixed font overriding by aggressively targeting OMV typography classes.
+          
+           -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 14 Jul 2026 14:35:00 +0530
+          
+          openmediavault-themekit (1.0.2) stable; urgency=medium
+          
+            * Added "None (Native OMV)" theme option to disable custom theming entirely.
+            * Restored topbar blur on special pages (Login, Authentication, Shutdown, Standby).
+            * Styled topbar on special pages with a darker shade of the selected accent color.
+          
+           -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sun, 12 Jul 2026 16:10:00 +0530
+          
+          openmediavault-themekit (1.0.1) stable; urgency=medium
+          
+            * Replaced global apt hook with precise dpkg trigger on index.html updates.
+            * Properly seed theme key on fresh installation.
+            * Tightened error handling by halting installation if schema registration fails.
+            * Cleaned up remaining metadata and documentation placeholders.
+          
+           -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sat, 11 Jul 2026 12:45:00 +0530
+          
+          openmediavault-themekit (1.0.0) stable; urgency=medium
+          
+            * Initial stable release of OpenMediaVault Themekit.
+            * Added extensive collection of pre-configured themes (Catppuccin, Rose Pine, Gruvbox, Nord, Dracula, etc.).
+            * Added dynamic styling engine with fallback variables to ensure uniform UI scaling across custom themes.
+            * Fixed contrast issues for dropdowns, popover menus, and sidebar list items in both light and dark modes.
+            * Implemented dynamic logo inversion for themes with lighter backgrounds.
+            * Corrected active list item backgrounds and icon color inheritances for seamless integration with Angular Material UI.
+            * Included Salt deploy modules and APT hooks to guarantee UI state persistence across system updates.
+            * Developed Settings page for effortlessly toggling themes and accents.
+          
+           -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sat, 11 Jul 2026 00:45:00 +0530
+          
         modifiers:
-          - type: hidden
+          - type: readonly
