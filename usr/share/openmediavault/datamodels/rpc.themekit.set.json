@@ -5,10 +5,68 @@
         "type": "object",
         "properties": {
             "theme": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                    "none",
+                    "default",
+                    "alucard",
+                    "black-gold-theme",
+                    "butterfly-theme",
+                    "catppuccin-frappe",
+                    "catppuccin-latte",
+                    "catppuccin-macchiato",
+                    "catppuccin-mocha",
+                    "okabe-ito",
+                    "dracula",
+                    "gruvbox-dark",
+                    "gruvbox-light",
+                    "high-contrast-light",
+                    "Ilavenil",
+                    "matrix-theme",
+                    "miami-beach",
+                    "nord-theme",
+                    "Notion-Dark-Mode",
+                    "rose-pine",
+                    "rose-pine-dawn",
+                    "rose-pine-moon",
+                    "shades-of-coffee",
+                    "shades-of-gray",
+                    "simple-dark",
+                    "1970-theme",
+                    "thyrium",
+                    "YNA-Theme-Dark",
+                    "YNA-Theme-Light",
+                    "you-need-a-dark-mode",
+                    "theme-zero-dark"
+                ]
             },
             "accent": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                    "default",
+                    "slate",
+                    "gray",
+                    "zinc",
+                    "neutral",
+                    "stone",
+                    "red",
+                    "orange",
+                    "amber",
+                    "yellow",
+                    "lime",
+                    "green",
+                    "emerald",
+                    "teal",
+                    "cyan",
+                    "sky",
+                    "blue",
+                    "indigo",
+                    "violet",
+                    "purple",
+                    "fuchsia",
+                    "pink",
+                    "rose"
+                ]
             },
             "accentSpecialPages": {
                 "type": "boolean"
