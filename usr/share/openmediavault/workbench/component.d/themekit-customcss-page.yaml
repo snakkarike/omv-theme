@@ -13,6 +13,10 @@ data:
     fields:
       - type: divider
         title: _("Custom CSS")
+      - type: checkbox
+        name: enableCustomCss
+        label: _("Enable Custom CSS")
+        value: false
       - type: textarea
         name: customCss
         label: _("Enter any custom CSS below. These styles will be applied with the highest priority and will override any standard theme styling.")
@@ -21,6 +25,11 @@ data:
         modifiers:
           - type: cssClass
             cssClass: "omv-font-monospace"
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableCustomCss
 
     buttons:
       - template: submit

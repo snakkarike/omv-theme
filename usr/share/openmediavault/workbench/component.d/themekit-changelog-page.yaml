@@ -16,6 +16,12 @@ data:
         label: _("Release History")
         rows: 50
         value: |
+          openmediavault-themekit (1.0.5)
+
+            * Expanded CSS typography selectors to aggressively apply custom fonts to previously missed Angular Material components (dialogs, checkboxes, selects, and specific headings).
+            * Refactored font scaling logic to correctly maintain OMV's native header sizing hierarchy using proportional CSS `calc()` operations based on the user's selected base font size.
+            * Added master toggle checkboxes to enable/disable Custom Typography and Custom CSS natively from the UI without losing configured settings.
+
           openmediavault-themekit (1.0.4)
 
             * SECURITY: Fixed severe shell injection vulnerability in `download_font.py` by passing dynamic font names via environment variables (`THEMEKIT_ACTIVE_FONT`) instead of shell arguments from Salt.

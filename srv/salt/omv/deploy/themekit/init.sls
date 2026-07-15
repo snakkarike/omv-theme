@@ -34,6 +34,7 @@ theme_custom_css:
         accentSpecialPages: {{ config.accentSpecialPages }}
         customFont: {{ active_font }}
         baseFontSize: {{ config.baseFontSize }}
+        enableTypography: {{ config.enableTypography | default(False) }}
 
 user_custom_css:
   file.managed:
@@ -46,6 +47,7 @@ user_custom_css:
     - makedirs: True
     - context:
         customCss: {{ config.customCss | default('') | json }}
+        enableCustomCss: {{ config.enableCustomCss | default(False) }}
 
 download_google_font:
   cmd.script:

@@ -77,6 +77,14 @@
             "type": "boolean",
             "default": false
         },
+        "enableTypography": {
+            "type": "boolean",
+            "default": false
+        },
+        "enableCustomCss": {
+            "type": "boolean",
+            "default": false
+        },
         "baseFontSize": {
             "type": "integer",
             "default": 16

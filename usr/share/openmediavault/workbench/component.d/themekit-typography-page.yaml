@@ -13,11 +13,21 @@ data:
     fields:
       - type: divider
         title: _("Fonts")
+      - type: checkbox
+        name: enableTypography
+        label: _("Enable Custom Typography")
+        value: false
       - type: select
         name: fontCategory
         label: _("Font Category")
         hint: _("Filter fonts by style/category.")
         value: "all"
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         store:
           data:
             - value: "all"
@@ -44,6 +54,11 @@ data:
               arg0:
                 prop: fontCategory
               arg1: "all"
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         store:
           data:
             - value: ""
@@ -3962,6 +3977,11 @@ data:
               arg0:
                 prop: fontCategory
               arg1: "sans-serif"
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         store:
           data:
             - value: ""
@@ -5412,6 +5432,11 @@ data:
               arg0:
                 prop: fontCategory
               arg1: "serif"
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         store:
           data:
             - value: ""
@@ -6126,6 +6151,11 @@ data:
               arg0:
                 prop: fontCategory
               arg1: "display"
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         store:
           data:
             - value: ""
@@ -7076,6 +7106,11 @@ data:
               arg0:
                 prop: fontCategory
               arg1: "handwriting"
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         store:
           data:
             - value: ""
@@ -7808,6 +7843,11 @@ data:
               arg0:
                 prop: fontCategory
               arg1: "monospace"
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         store:
           data:
             - value: ""
@@ -7937,6 +7977,12 @@ data:
         label: _("Base Font Size (px)")
         hint: _("Base font size for the interface. Default is 16. Adjusting this will scale all text.")
         value: 16
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enableTypography
         validators:
           min: 10
           max: 24
