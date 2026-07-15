@@ -19,11 +19,13 @@ def main():
     # Read font from environment to prevent shell injection vulnerabilities
     font_name = os.environ.get('THEMEKIT_ACTIVE_FONT', '').strip(' "\'')
     
+    active_css = "/var/www/openmediavault/assets/theme-font.css"
+    
     if not font_name:
+        with open(active_css, "w") as f:
+            f.write("")
         log("No font provided in environment.")
         return
-        
-    active_css = "/var/www/openmediavault/assets/theme-font.css"
     fonts_dir = "/var/www/openmediavault/assets/fonts"
     PLUGIN_DIR = "/usr/share/openmediavault/scripts/themekit"
     
