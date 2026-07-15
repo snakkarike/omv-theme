@@ -49,7 +49,7 @@ Once installed, refresh your browser (`Ctrl+Shift+R`) and look for "Theme Kit" u
 
 - No `css/` or `images/` directories exist in the webroot, only `assets/`. There is no pre-wired `theme-custom.css` hook anywhere.
 - `index.html` loads a single hash-named bundle, `styles.<hash>.css`, that hash changes on every OMV rebuild, so nothing can reference it by name. The only stable injection point is patching `index.html` itself to add a `<link>` right before `</head>`, after the hash-named stylesheet so ours wins the cascade.
-- `index.html` is a package-tracked file and gets replaced wholesale on every `openmediavault-webgui` update, so the patch has to be idempotent and re-run on every deploy (handled in `init.sls` via `patch_index_html`, guarded by a `grep` check), not just once at install.
+- `index.html` is a package-tracked file and gets replaced wholesale on every `openmediavault-webgui` update, so the patch has to be idempotent and re-run on every deploy (handled in `init.sls` via `patch_index_html`), not just once at install.
 - The CSS template violently overrides specific hardcoded elements in OMV 8 (like the `#5dacdf` blue used on the top toolbar and active tabs) to ensure your selected accent color applies everywhere, while leaving the default OMV dark/light mode system entirely intact.
 
 ## Build from Source (For Developers)

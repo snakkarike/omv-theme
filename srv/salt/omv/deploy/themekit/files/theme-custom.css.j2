@@ -2,7 +2,7 @@
 
 :root {
 {%- if enableTypography and (customFont | string | lower) not in ['', 'none'] %}
-  --theme-font-family: '{{ customFont }}', sans-serif !important;
+  --theme-font-family: '{{ customFont | replace("'", "\\'") | replace('"', '\\"') }}', sans-serif !important;
 {%- endif %}
 {%- if enableTypography and (baseFontSize | default(16) > 0) %}
   --theme-font-size: {{ baseFontSize }}px !important;

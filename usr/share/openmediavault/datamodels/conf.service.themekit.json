@@ -87,6 +87,8 @@
         },
         "baseFontSize": {
             "type": "integer",
+            "minimum": 10,
+            "maximum": 24,
             "default": 16
         },
         "customFont": {

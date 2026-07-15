@@ -53,6 +53,7 @@ download_google_font:
   cmd.script:
     - name: salt://omv/deploy/themekit/files/download_font.py
     - template: jinja
+    - stateful: True
     - env:
       - PYTHONUNBUFFERED: "1"
       - THEMEKIT_ACTIVE_FONT: {{ active_font | json }}
@@ -65,10 +66,13 @@ download_google_font:
 patch_index_html:
   cmd.run:
     - name: >
+        FONT_MD5=$(md5sum {{ webroot }}/assets/theme-font.css | cut -d' ' -f1) &&
+        CUSTOM_MD5=$(md5sum {{ webroot }}/assets/theme-custom.css | cut -d' ' -f1) &&
+        USER_MD5=$(md5sum {{ webroot }}/assets/user-custom.css | cut -d' ' -f1) &&
         sed -i -e 's#<link rel="stylesheet" href="assets/theme-font.css[^>]*>##g' {{ webroot }}/index.html &&
         sed -i -e 's#<link rel="stylesheet" href="assets/theme-custom.css[^>]*>##g' {{ webroot }}/index.html &&
         sed -i -e 's#<link rel="stylesheet" href="assets/user-custom.css[^>]*>##g' {{ webroot }}/index.html &&
-        sed -i 's#</head>#<link rel="stylesheet" href="assets/theme-font.css?v='$(date +%s)'">\n<link rel="stylesheet" href="assets/theme-custom.css?v='$(date +%s)'">\n<link rel="stylesheet" href="assets/user-custom.css?v='$(date +%s)'">\n</head>#' {{ webroot }}/index.html
+        sed -i "s#</head>#<link rel=\"stylesheet\" href=\"assets/theme-font.css?v=${FONT_MD5}\">\n<link rel=\"stylesheet\" href=\"assets/theme-custom.css?v=${CUSTOM_MD5}\">\n<link rel=\"stylesheet\" href=\"assets/user-custom.css?v=${USER_MD5}\">\n</head>#" {{ webroot }}/index.html
     - require:
         - cmd: download_google_font
         - file: theme_custom_css

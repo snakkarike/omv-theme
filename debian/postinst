@@ -60,12 +60,7 @@ except Exception as e:
         # Render the CSS based on current settings.
         omv-salt deploy run themekit || true
 
-        # Refresh the services that serve the web UI.
-        systemctl restart phpsessionclean.timer 2>/dev/null || true
-        systemctl reload-or-restart nginx 2>/dev/null || true
-        for f in /etc/init.d/php*-fpm; do
-            [ -x "$f" ] && "$f" reload 2>/dev/null || true
-        done
+
         systemctl restart openmediavault-engined 2>/dev/null || true
         ;;
     triggered)

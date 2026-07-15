@@ -42,7 +42,8 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
             "role" => OMV_ROLE_ADMINISTRATOR
         ]);
 
-
+        // Validate incoming parameters against the datamodel schema to enforce enums and bounds
+        $this->validateMethodParams($params, "conf.service.themekit");
 
         $db = Database::getInstance();
         $object = $db->get("conf.service.themekit");
@@ -58,7 +59,8 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
         // Re-render CSS via the salt state for this plugin.
         // We run this in the background so it doesn't block the RPC response!
         // We also sleep for 2 seconds to ensure omv-engined has finished writing the new config to disk.
-        exec("(sleep 2; omv-salt deploy run themekit) > /dev/null 2>&1 &");
+        // flock ensures concurrent saves (rapid tab clicking) don't corrupt index.html
+        exec("(sleep 2; flock -w 10 /var/run/omv-themekit.lock omv-salt deploy run themekit) > /dev/null 2>&1 &");
 
         return $object->getAssoc();
     }
