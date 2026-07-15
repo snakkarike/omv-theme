@@ -65,9 +65,11 @@ download_google_font:
 patch_index_html:
   cmd.run:
     - name: >
+        sed -i -e 's#<link rel="stylesheet" href="assets/theme-font.css[^>]*>##g' {{ webroot }}/index.html &&
         sed -i -e 's#<link rel="stylesheet" href="assets/theme-custom.css[^>]*>##g' {{ webroot }}/index.html &&
         sed -i -e 's#<link rel="stylesheet" href="assets/user-custom.css[^>]*>##g' {{ webroot }}/index.html &&
-        sed -i 's#</head>#<link rel="stylesheet" href="assets/theme-custom.css?v='$(date +%s)'">\n<link rel="stylesheet" href="assets/user-custom.css?v='$(date +%s)'">\n</head>#' {{ webroot }}/index.html
+        sed -i 's#</head>#<link rel="stylesheet" href="assets/theme-font.css?v='$(date +%s)'">\n<link rel="stylesheet" href="assets/theme-custom.css?v='$(date +%s)'">\n<link rel="stylesheet" href="assets/user-custom.css?v='$(date +%s)'">\n</head>#' {{ webroot }}/index.html
     - require:
+        - cmd: download_google_font
         - file: theme_custom_css
         - file: user_custom_css
