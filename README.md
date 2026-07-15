@@ -1,6 +1,9 @@
 # openmediavault-themekit
 
-An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize the accent color of the UI using a massive Tailwind color palette and a variety of themes. Settings are stored in OMV's config database, and a Salt state renders them into an actual CSS file. A dpkg trigger re-runs that Salt state whenever `openmediavault-webgui` updates `index.html`, so your theme survives OMV updates.
+An OMV 8 plugin: a "Theme Kit" page under System that allows you to deeply customize the OpenMediaVault UI.
+Features include customizing the accent color using a massive Tailwind color palette, applying a variety of gorgeous community themes, injecting Google Fonts for custom typography, and writing your own custom CSS.
+
+Settings are stored in OMV's config database, and a Salt state renders them into actual CSS files. A `dpkg` trigger re-runs that Salt state whenever `openmediavault-webgui` updates `index.html`, so your theme and fonts survive OMV updates. Configuration changes are handled cleanly through OMV's native `omv-engined` module listeners.
 
 ## Screenshots
 
@@ -22,6 +25,15 @@ An OMV 8 plugin: a "Theme Kit" page under System that allows you to customize th
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ![YNA-Theme-Dark](screenshots/ynadark.png)<br><sub>[YNA-Theme-Dark](https://github.com/Juulz/YNA-Theme-Dark)</sub>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                    ![YNA-Theme-Light](screenshots/ynalight.png)<br><sub>[YNA-Theme-Light](https://github.com/Juulz/YNA-Theme-Light)</sub>                    |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ![you-need-a-dark-mode](screenshots/youneedadarkmode.png)<br><sub>[you-need-a-dark-mode](https://github.com/distantvapor/you-need-a-dark-mode)</sub>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |     ![actual-theme-zero-dark](screenshots/zerodark.png)<br><sub>[actual-theme-zero-dark](https://github.com/deathblade666/actual-theme-zero-dark)</sub>      |
 
+## Features
+
+- **Themes:** Over 20 built-in themes (Catppuccin, Dracula, Nord, Rose Pine, Gruvbox, etc.) ported for OMV.
+- **Accent Colors:** Pick from the full TailwindCSS color palette to customize buttons, active tabs, and highlights.
+- **Typography:** Dynamically downloads and applies Google Fonts to the UI. Choose separate fonts for sans-serif, serif, display, handwriting, and monospace text.
+- **Custom CSS:** Directly inject your own CSS to tweak any part of the UI.
+- **Special Pages Accent:** Optionally replace the login/shutdown wallpaper with a solid accent color.
+- **Native OMV Integration:** Fully utilizes OMV's `confdb`, `omv-engined`, and `salt` architecture. Uses OMV's built-in module listener pattern, showing the standard yellow "Apply Changes" banner when you save.
+
 ## Installation
 
 To install the plugin on your OpenMediaVault server, download the latest release and install it via `dpkg`:
@@ -39,18 +51,20 @@ Once installed, refresh your browser (`Ctrl+Shift+R`) and look for "Theme Kit" u
 ## Layout
 
 - `debian/` - standard Debian packaging (control, rules, postinst, postrm, triggers)
-- `usr/share/openmediavault/datamodels/conf.service.themekit.json` - config schema
+- `usr/share/openmediavault/datamodels/` - config schema and RPC data models
 - `usr/share/openmediavault/engined/rpc/themekit.inc` - get/set RPC backend
-- `usr/share/openmediavault/workbench/` - YAML manifests for the navigation entry, route, and the settings form page itself
-- `srv/salt/omv/deploy/themekit/` - the Salt state + Jinja CSS template that actually applies the theme to disk
+- `usr/share/openmediavault/engined/module/themekit.inc` - native engine module listener
+- `usr/share/openmediavault/workbench/` - YAML manifests for the navigation entry, route, settings, typography, and changelog pages
+- `srv/salt/omv/deploy/themekit/` - the Salt state + Jinja templates that actually apply the theme, fonts, and custom CSS to disk
 - `debian/openmediavault-themekit.triggers` - dpkg trigger that re-applies the theme whenever `openmediavault-webgui` updates `index.html`
 
 ## Architecture Details
 
 - No `css/` or `images/` directories exist in the webroot, only `assets/`. There is no pre-wired `theme-custom.css` hook anywhere.
-- `index.html` loads a single hash-named bundle, `styles.<hash>.css`, that hash changes on every OMV rebuild, so nothing can reference it by name. The only stable injection point is patching `index.html` itself to add a `<link>` right before `</head>`, after the hash-named stylesheet so ours wins the cascade.
+- `index.html` loads a single hash-named bundle, `styles.<hash>.css`, that hash changes on every OMV rebuild, so nothing can reference it by name. The only stable injection point is patching `index.html` itself to add `<link>` tags right before `</head>`, after the hash-named stylesheet so ours wins the cascade.
 - `index.html` is a package-tracked file and gets replaced wholesale on every `openmediavault-webgui` update, so the patch has to be idempotent and re-run on every deploy (handled in `init.sls` via `patch_index_html`), not just once at install.
 - The CSS template violently overrides specific hardcoded elements in OMV 8 (like the `#5dacdf` blue used on the top toolbar and active tabs) to ensure your selected accent color applies everywhere, while leaving the default OMV dark/light mode system entirely intact.
+- A Python script (`download_font.py`) invoked during Salt deployment intelligently downloads Google Fonts as WOFF2 binaries and embeds them locally into `/assets/fonts/`, bypassing the need for client-side API requests.
 
 ## Build from Source (For Developers)
 
@@ -69,17 +83,17 @@ cd ~/openmediavault-themekit
 dpkg-buildpackage -us -uc -b
 ```
 
-This drops `openmediavault-themekit_1.0.1_all.deb` in `~` (one directory up from the source tree).
+This drops the `.deb` file in `~` (one directory up from the source tree).
 
 **3. Install it**
 
 ```bash
 cd ~
-sudo dpkg -i openmediavault-themekit_1.0.1_all.deb
+sudo dpkg -i openmediavault-themekit_*_all.deb
 sudo apt -f install
 ```
 
-`postinst` runs automatically here: it registers the config schema, then calls `omv-salt deploy run themekit`, which is the step that actually writes `assets/theme-custom.css` and patches `index.html`.
+`postinst` runs automatically here: it registers the config schema, then calls `omv-salt deploy run themekit`, which is the step that actually writes `assets/theme-custom.css`, `assets/theme-font.css`, and patches `index.html`.
 
 **4. Verify the backend before touching the UI**
 
@@ -88,7 +102,7 @@ omv-confdbadm read conf.service.themekit
 omv-rpc "ThemeKit" "get"
 ```
 
-Both should return JSON with `accent: "default"` and `theme: "default"`.
+Both should return JSON with the default schema.
 
 **5. Load the UI**
 
@@ -113,7 +127,7 @@ cd ..
 
 # 3. Purge the old installation and do a clean install
 sudo apt-get purge openmediavault-themekit -y
-sudo dpkg -i openmediavault-themekit_1.0.1_all.deb
+sudo dpkg -i openmediavault-themekit_*_all.deb
 sudo apt-get install -f -y
 
 # 4. NUKE Salt's file cache so it doesn't serve the old template
