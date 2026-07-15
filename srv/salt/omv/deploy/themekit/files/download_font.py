@@ -115,9 +115,9 @@ def main():
         if not os.path.exists(local_path):
             try:
                 font_req = urllib.request.Request(url, headers=headers)
-                font_data = urllib.request.urlopen(font_req, context=ctx).read()
+                font_binary = urllib.request.urlopen(font_req, context=ctx).read()
                 with open(local_path, 'wb') as f:
-                    f.write(font_data)
+                    f.write(font_binary)
                 log(f"Downloaded {filename}")
             except Exception as e:
                 log(f"Failed to download font file {url}: {e}")

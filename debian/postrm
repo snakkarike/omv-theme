@@ -20,7 +20,9 @@ case "$1" in
         rm -f "$WEBROOT/assets/theme-custom.css"
         rm -f "$WEBROOT/assets/theme-font.css"
         rm -f "$WEBROOT/assets/user-custom.css"
-        rm -rf "$WEBROOT/assets/fonts"        ;;
+        rm -rf "$WEBROOT/assets/fonts"
+        ;;
+
 esac
 
 #DEBHELPER#

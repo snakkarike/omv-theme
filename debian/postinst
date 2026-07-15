@@ -60,7 +60,6 @@ except Exception as e:
         # Render the CSS based on current settings.
         omv-salt deploy run themekit || true
 
-
         systemctl restart openmediavault-engined 2>/dev/null || true
         ;;
     triggered)

@@ -47,7 +47,6 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
 
         $db = Database::getInstance();
         $object = $db->get("conf.service.themekit");
-        
         // Merge the incoming parameters with the existing configuration to
         // prevent wiping out fields from other tabs when submitting a
         // partial form (e.g. saving Typography without Settings).
@@ -57,13 +56,15 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
         $object->setAssoc($merged);
         $db->set($object);
 
+        $data = $object->getAssoc();
+
         // Notify listeners so the engined module marks themekit as dirty
         // and the Apply Changes banner appears in the UI.
         Dispatcher::getInstance()->notify(
             OMV_NOTIFY_MODIFY,
             "org.openmediavault.conf.service.themekit",
-            $object->getAssoc());
+            $data);
 
-        return $object->getAssoc();
+        return $data;
     }
 }
