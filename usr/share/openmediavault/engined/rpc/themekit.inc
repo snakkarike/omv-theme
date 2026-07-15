@@ -57,11 +57,6 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
 
         $data = $object->getAssoc();
 
-        // Mark this module dirty so omv-engined shows the Apply Changes
-        // banner. The engine will call deploy() -> omv-salt deploy run themekit
-        // when the user clicks Apply.
-        $this->setModuleDirty('themekit');
-
         return $data;
     }
 }

@@ -19,9 +19,7 @@ data:
           openmediavault-themekit (1.0.7)
 
             * Replaced background exec(omv-salt ...) call in the RPC set method with a proper omv-engined module listener following the standard OpenMediaVault plugin architecture.
-            * Added engined/module/themekit.inc implementing ServiceAbstract to define the module.
-            * Replaced Dispatcher::getInstance()->notify() with direct $this->setModuleDirty('themekit') in ThemeKit::set() to trigger the Apply Changes banner directly.
-            * Removed unnecessary IListener interface from the module since we are marking it dirty from the RPC method.
+            * Added engined/module/themekit.inc implementing ServiceAbstract and IListener, which marks the module dirty via setDirty() on configuration changes.
             * CSS is now only regenerated when the user explicitly clicks Apply Changes, consistent with how all other OMV plugins behave.
             * Optimized RPC set method: cache getAssoc() result once and reuse for both notify() and return value instead of calling it three times.
             * Fixed variable name collision in download_font.py: inner binary download variable renamed to font_binary to avoid shadowing the outer DB lookup variable.
