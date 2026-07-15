@@ -96,6 +96,34 @@
         "customCss": {
             "type": "string",
             "default": ""
+        },
+        "fontCategory": {
+            "type": "string",
+            "default": "all"
+        },
+        "customFont_all": {
+            "type": "string",
+            "default": ""
+        },
+        "customFont_sans_serif": {
+            "type": "string",
+            "default": ""
+        },
+        "customFont_serif": {
+            "type": "string",
+            "default": ""
+        },
+        "customFont_display": {
+            "type": "string",
+            "default": ""
+        },
+        "customFont_handwriting": {
+            "type": "string",
+            "default": ""
+        },
+        "customFont_monospace": {
+            "type": "string",
+            "default": ""
         }
     }
 }

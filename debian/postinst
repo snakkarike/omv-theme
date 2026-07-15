@@ -38,7 +38,9 @@ try:
         'customFont_serif': '',
         'customFont_display': '',
         'customFont_handwriting': '',
-        'customFont_monospace': ''
+        'customFont_monospace': '',
+        'enableTypography': False,
+        'enableCustomCss': False
     }
     
     dirty = False

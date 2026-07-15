@@ -1,7 +1,20 @@
 {% set config = salt['omv_conf.get']('conf.service.themekit') %}
 {% set webroot = '/var/www/openmediavault' %}
 
-{% set active_font = config.customFont | default('') %}
+{% set cat = config.fontCategory | default('all') %}
+{% if cat == 'sans-serif' %}
+{% set active_font = config.customFont_sans_serif | default('') %}
+{% elif cat == 'serif' %}
+{% set active_font = config.customFont_serif | default('') %}
+{% elif cat == 'display' %}
+{% set active_font = config.customFont_display | default('') %}
+{% elif cat == 'handwriting' %}
+{% set active_font = config.customFont_handwriting | default('') %}
+{% elif cat == 'monospace' %}
+{% set active_font = config.customFont_monospace | default('') %}
+{% else %}
+{% set active_font = config.customFont_all | default('') %}
+{% endif %}
 
 # --- CSS override, lives in assets/ which is not hash-named and is safe
 # to leave in place across OMV rebuilds. -------------------------------
