@@ -3,8 +3,8 @@
  * ThemeKit RPC service.
  *
  * Exposes ThemeKit.get / ThemeKit.set to the web UI. Reads and writes the
- * conf.service.themekit config object, then asks Salt to regenerate the
- * CSS.
+ * conf.service.themekit config object and notifies the engine so the
+ * module listener can mark the themekit module dirty.
  */
 
 use OMV\Config\Database;
@@ -30,10 +30,7 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
 
         $db = Database::getInstance();
         $object = $db->get("conf.service.themekit");
-        $assoc = $object->getAssoc();
-        
-        
-        return $assoc;
+        return $object->getAssoc();
     }
 
     public function set($params, $context)
@@ -59,11 +56,11 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
         $object->setAssoc($merged);
         $db->set($object);
 
-        // Re-render CSS via the salt state for this plugin.
-        // We run this in the background so it doesn't block the RPC response!
-        // We also sleep for 2 seconds to ensure omv-engined has finished writing the new config to disk.
-        // flock ensures concurrent saves (rapid tab clicking) don't corrupt index.html
-        exec("(sleep 2; flock -w 10 /var/run/omv-themekit.lock omv-salt deploy run themekit) > /dev/null 2>&1 &");
+        // Notify listeners so the engined module marks themekit as dirty
+        // and the Apply Changes banner appears in the UI.
+        $this->notify(OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.themekit",
+            $object->getAssoc());
 
         return $object->getAssoc();
     }

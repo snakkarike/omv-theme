@@ -1,3 +1,12 @@
+openmediavault-themekit (1.0.7) stable; urgency=medium
+
+  * Replaced background `exec(omv-salt ...)` call in the RPC `set` method with a proper omv-engined module listener following the standard OpenMediaVault plugin architecture.
+  * Added `engined/module/themekit.inc` implementing `ServiceAbstract` and `IListener`, which marks the module dirty via `setDirty()` on configuration changes.
+  * Added `$this->notify(OMV_NOTIFY_MODIFY, ...)` dispatch in `ThemeKit::set()` so the engine receives the configuration change event and shows the Apply Changes banner in the web UI.
+  * CSS is now only regenerated when the user explicitly clicks Apply Changes, consistent with how all other OMV plugins behave.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Tue, 15 Jul 2026 19:15:00 +0530
+
 openmediavault-themekit (1.0.6) stable; urgency=medium
 
   * SECURITY: Fixed YAML/Jinja injection vulnerability in Salt states by enforcing JSON serialization (`| json`) for all dynamically injected variables.
