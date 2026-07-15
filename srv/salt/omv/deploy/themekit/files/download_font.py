@@ -10,8 +10,12 @@ import json
 
 def log(msg):
     log_dir = "/var/log/themekit"
+    log_file = f"{log_dir}/font_download.log"
     os.makedirs(log_dir, exist_ok=True)
-    with open(f"{log_dir}/font_download.log", "a") as f:
+    # Rotate log if it exceeds 500 KB
+    if os.path.exists(log_file) and os.path.getsize(log_file) > 512000:
+        os.replace(log_file, f"{log_file}.1")
+    with open(log_file, "a") as f:
         f.write(msg + "\n")
 
 def finish(changed, comment, result=True):
@@ -47,13 +51,15 @@ def main():
     if not font_name:
         changed = write_if_changed(active_css, "")
         finish(changed, "No font provided in environment.")
-        
+        return
+
     fonts_dir = "/var/www/openmediavault/assets/fonts"
     PLUGIN_DIR = "/usr/share/openmediavault/scripts/themekit"
-    
+
     if font_name.lower() == "none":
         changed = write_if_changed(active_css, "")
         finish(changed, "Font cleared.")
+        return
 
     with open(f'{PLUGIN_DIR}/google-fonts.json', 'r') as f:
         fonts_db = json.load(f)

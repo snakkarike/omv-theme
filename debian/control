@@ -10,6 +10,7 @@ Package: openmediavault-themekit
 Architecture: all
 Depends: openmediavault (>= 8.1.1), ${misc:Depends}
 Description: Custom theme and accent color plugin for openmediavault
-  A plugin that allows you to easily customize the openmediavault 8 web
-  interface. It provides a system settings page to select a custom theme or accent color. Settings persist across openmediavault updates
-  via a dpkg trigger.
+  A plugin that allows you to easily customize the OpenMediaVault 8 web
+  interface. It provides a system settings page to select a custom theme,
+  accent color, typography, and custom CSS. Settings persist across
+  OpenMediaVault updates via a dpkg trigger.
