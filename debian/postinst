@@ -7,13 +7,6 @@ case "$1" in
         # Rebuild the OMV workbench UI cache so new YAML files appear.
         dpkg-trigger update-workbench
 
-        # Clean up deprecated wallpaper config keys from the XML database to prevent AssertException
-        if command -v xmlstarlet >/dev/null 2>&1; then
-            xmlstarlet ed -L -d "//services/themekit/loginwallpaper" /etc/openmediavault/config.xml || true
-            xmlstarlet ed -L -d "//services/themekit/standbywallpaper" /etc/openmediavault/config.xml || true
-            xmlstarlet ed -L -d "//services/themekit/shutdownwallpaper" /etc/openmediavault/config.xml || true
-        fi
-
         # Register (or update) the config database schema for this plugin.
         omv-confdbadm create "conf.service.themekit"
 

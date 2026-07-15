@@ -1,3 +1,13 @@
+openmediavault-themekit (1.0.6) stable; urgency=medium
+
+  * SECURITY: Fixed YAML/Jinja injection vulnerability in Salt states by enforcing JSON serialization (`| json`) for all dynamically injected variables.
+  * Fixed persistent 404 error for `theme-font.css` by correctly generating a blank stylesheet when no font is selected or custom typography is disabled.
+  * Cleaned up backend RPC by establishing the XML database as the sole source of truth, dropping heavy fallback reads and `syslog()` debug dumps.
+  * Added missing schema toggles (`enableTypography` and `enableCustomCss`) to the `confdb` seed script to prevent validation errors on initial plugin load.
+  * Added automated `xmlstarlet` cleanup to the `postinst` migration script to safely prune deprecated keys on upgrades.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Wed, 15 Jul 2026 16:35:00 +0530
+
 openmediavault-themekit (1.0.5) stable; urgency=medium
 
   * Expanded CSS typography selectors to aggressively apply custom fonts to previously missed Angular Material components (dialogs, checkboxes, selects, and specific headings).
