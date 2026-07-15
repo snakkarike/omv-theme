@@ -42,16 +42,19 @@ class OMVRpcServiceThemeKit extends \OMV\Rpc\ServiceAbstract
             "role" => OMV_ROLE_ADMINISTRATOR
         ]);
 
+        // Validate against the RPC-specific schema, not the conf.service.*
+        // config datamodel — validateMethodParams requires a "type": "rpc"
+        // datamodel; conf.service.themekit doesn't implement getParamsSchema().
+        $this->validateMethodParams($params, "rpc.themekit.set");
+
         $db = Database::getInstance();
         $object = $db->get("conf.service.themekit");
         
-        // Merge the incoming parameters with the existing configuration to prevent wiping out fields
-        // from other tabs when submitting a partial form (e.g. saving Typography without Settings)
+        // Merge the incoming parameters with the existing configuration to
+        // prevent wiping out fields from other tabs when submitting a
+        // partial form (e.g. saving Typography without Settings).
         $existing = $object->getAssoc();
         $merged = array_merge($existing, $params);
-        
-        // Validate the fully merged object against the existing config schema
-        $this->validateMethodParams($merged, "conf.service.themekit");
 
         $object->setAssoc($merged);
         $db->set($object);

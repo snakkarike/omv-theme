@@ -1,0 +1,56 @@
+{
+    "type": "rpc",
+    "id": "rpc.themekit.set",
+    "params": {
+        "type": "object",
+        "properties": {
+            "theme": {
+                "type": "string"
+            },
+            "accent": {
+                "type": "string"
+            },
+            "accentSpecialPages": {
+                "type": "boolean"
+            },
+            "enableTypography": {
+                "type": "boolean"
+            },
+            "enableCustomCss": {
+                "type": "boolean"
+            },
+            "baseFontSize": {
+                "type": "integer",
+                "minimum": 10,
+                "maximum": 24
+            },
+            "customFont": {
+                "type": "string"
+            },
+            "customCss": {
+                "type": "string"
+            },
+            "fontCategory": {
+                "type": "string"
+            },
+            "customFont_all": {
+                "type": "string"
+            },
+            "customFont_sans_serif": {
+                "type": "string"
+            },
+            "customFont_serif": {
+                "type": "string"
+            },
+            "customFont_display": {
+                "type": "string"
+            },
+            "customFont_handwriting": {
+                "type": "string"
+            },
+            "customFont_monospace": {
+                "type": "string"
+            }
+        }
+    }
+}
