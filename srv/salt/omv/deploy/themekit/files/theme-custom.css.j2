@@ -196,6 +196,13 @@ button.mat-menu-item:has(mat-icon[svgicon="mdi:weather-night"]) {
   background-color:var(--theme-primary) !important;
 }
 
+/* Override hardcoded OMV grey/white backgrounds for standard buttons */
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab,
+.omv-dark-theme .mat-flat-button, .omv-dark-theme .mat-raised-button, .omv-dark-theme .mat-fab, .omv-dark-theme .mat-mini-fab {
+  color: var(--color-buttonNormalText, var(--color-pageText, #000000de)) !important;
+  background-color: var(--color-buttonNormalBackground, var(--color-cardBackground, #fff)) !important;
+}
+
 .mat-flat-button.mat-primary,.mat-raised-button.mat-primary,.mat-fab.mat-primary,.mat-mini-fab.mat-primary {
   background-color:var(--theme-primary) !important;
 }
