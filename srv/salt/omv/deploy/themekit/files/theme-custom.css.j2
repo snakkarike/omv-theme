@@ -9,7 +9,7 @@
 {%- endif %}
 }
 
-{% if (customFont | string | lower) not in ['', 'none'] or baseFontSize | default(16) > 0 %}
+{% if (customFont | string | lower) not in ['', 'none'] %}
 body, .mat-typography, 
 .mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4, .mat-typography h5, .mat-typography h6,
 .mat-typography .mat-h1, .mat-typography .mat-h2, .mat-typography .mat-h3, .mat-typography .mat-h4, .mat-typography .mat-h5, .mat-typography .mat-h6,
@@ -23,14 +23,46 @@ body, .mat-typography,
 .ngx-datatable, .toast-container, button, input, select, textarea,
 .mat-form-field, .mat-form-field-infix, .mat-checkbox, .mat-checkbox-layout .mat-checkbox-label, .mat-select-value-text, .mat-button-toggle, .omv-top-bar .hostname,
 .mat-dialog-title, .mat-dialog-content, .mat-dialog-container, .omv-dark-theme .mat-dialog-content, .omv-dark-theme .mat-dialog-container, .mat-dialog-container.omv-dark-theme {
-  {%- if (customFont | string | lower) not in ['', 'none'] %}
   font-family: var(--theme-font-family) !important;
-  {%- endif %}
-  {%- if baseFontSize | default(16) > 0 %}
-  font-size: var(--theme-font-size) !important;
-  {%- endif %}
 }
 {% endif %}
+
+{%- if baseFontSize | default(16) > 0 %}
+body, .mat-typography, 
+.mat-typography .mat-body-strong, .mat-typography .mat-body-2, .mat-typography .mat-body, .mat-typography .mat-body-1,
+.mat-body-strong, .mat-body-2, .mat-body, .mat-body-1,
+.mat-button, .mat-menu-item, .mat-option, .mat-tab-label,
+.mat-card, .mat-list-item, .mat-table, .mat-header-cell, .mat-cell,
+.ngx-datatable, .toast-container, button, input, select, textarea,
+.mat-form-field, .mat-form-field-infix, .mat-checkbox, .mat-checkbox-layout .mat-checkbox-label, .mat-select-value-text, .mat-button-toggle, .omv-top-bar .hostname,
+.mat-dialog-content, .mat-dialog-container, .omv-dark-theme .mat-dialog-content, .omv-dark-theme .mat-dialog-container, .mat-dialog-container.omv-dark-theme {
+  font-size: var(--theme-font-size) !important;
+}
+
+.mat-typography h1, .mat-typography .mat-h1, .mat-typography .mat-headline, .mat-h1, .mat-headline {
+  font-size: calc(var(--theme-font-size) * 1.7143) !important;
+}
+
+.mat-typography h2, .mat-typography .mat-h2, .mat-typography .mat-title, .mat-h2, .mat-title, .mat-dialog-title {
+  font-size: calc(var(--theme-font-size) * 1.4286) !important;
+}
+
+.mat-typography h3, .mat-typography .mat-h3, .mat-typography .mat-subheading-2, .mat-h3, .mat-subheading-2 {
+  font-size: calc(var(--theme-font-size) * 1.1429) !important;
+}
+
+.mat-typography h4, .mat-typography .mat-h4, .mat-typography .mat-subheading-1, .mat-h4, .mat-subheading-1 {
+  font-size: calc(var(--theme-font-size) * 1.0714) !important;
+}
+
+.mat-typography h5, .mat-typography .mat-h5, .mat-h5 {
+  font-size: calc(var(--theme-font-size) * 0.83) !important;
+}
+
+.mat-typography h6, .mat-typography .mat-h6, .mat-h6 {
+  font-size: calc(var(--theme-font-size) * 0.67) !important;
+}
+{%- endif %}
 
 {% if theme != 'none' %}
 {% if theme != 'default' %}
