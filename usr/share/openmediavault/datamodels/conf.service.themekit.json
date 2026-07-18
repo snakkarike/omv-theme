@@ -126,6 +126,26 @@
         "customFont_monospace": {
             "type": "string",
             "default": ""
+        },
+        "enableCustomBranding": {
+            "type": "boolean",
+            "default": false
+        },
+        "brandingType": {
+            "type": "string",
+            "enum": [
+                "text",
+                "image"
+            ],
+            "default": "text"
+        },
+        "brandingText": {
+            "type": "string",
+            "default": "OpenMediaVault"
+        },
+        "brandingImageUrl": {
+            "type": "string",
+            "default": ""
         }
     }
 }

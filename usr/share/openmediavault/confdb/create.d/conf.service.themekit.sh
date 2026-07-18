@@ -22,6 +22,10 @@ if ! omv_config_exists "/config/services/themekit"; then
     omv_config_add_key "/config/services/themekit" "customFont_display" ""
     omv_config_add_key "/config/services/themekit" "customFont_handwriting" ""
     omv_config_add_key "/config/services/themekit" "customFont_monospace" ""
+    omv_config_add_key "/config/services/themekit" "enableCustomBranding" "false" "bool"
+    omv_config_add_key "/config/services/themekit" "brandingType" "text"
+    omv_config_add_key "/config/services/themekit" "brandingText" "OpenMediaVault"
+    omv_config_add_key "/config/services/themekit" "brandingImageUrl" ""
 fi
 
 exit 0

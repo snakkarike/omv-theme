@@ -35,6 +35,10 @@ theme_custom_css:
         customFont: {{ active_font | json }}
         baseFontSize: {{ config.baseFontSize | json }}
         enableTypography: {{ config.enableTypography | default(False) | json }}
+        enableCustomBranding: {{ config.enableCustomBranding | default(False) | json }}
+        brandingType: {{ config.brandingType | default('text') | json }}
+        brandingText: {{ config.brandingText | default('OpenMediaVault') | json }}
+        brandingImageUrl: {{ config.brandingImageUrl | default('') | json }}
 
 user_custom_css:
   file.managed:

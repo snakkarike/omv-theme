@@ -108,6 +108,22 @@
             },
             "customFont_monospace": {
                 "type": "string"
+            },
+            "enableCustomBranding": {
+                "type": "boolean"
+            },
+            "brandingType": {
+                "type": "string",
+                "enum": [
+                    "text",
+                    "image"
+                ]
+            },
+            "brandingText": {
+                "type": "string"
+            },
+            "brandingImageUrl": {
+                "type": "string"
             }
         }
     }

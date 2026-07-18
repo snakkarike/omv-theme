@@ -1,0 +1,65 @@
+name: Build and publish release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*.*.*"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y debhelper build-essential
+
+      - name: Build package
+        run: dpkg-buildpackage -us -uc -b
+
+      - name: Locate and stage build artifacts
+        id: stage
+        run: |
+          set -e
+          DEB_PATH=$(find .. -maxdepth 1 -name 'openmediavault-themekit_*_all.deb' | head -n1)
+          if [ -z "$DEB_PATH" ]; then
+            echo "No .deb produced by the build" >&2
+            exit 1
+          fi
+          VERSION=$(dpkg-deb -f "$DEB_PATH" Version)
+          mkdir -p dist
+          cp "$DEB_PATH" "dist/openmediavault-themekit_${VERSION}_all.deb"
+          cp "$DEB_PATH" "dist/openmediavault-themekit_all.deb"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Verify package installability (offline check)
+        run: |
+          dpkg-deb -I "dist/openmediavault-themekit_all.deb"
+          dpkg-deb -c "dist/openmediavault-themekit_all.deb" > /dev/null
+
+      - name: Upload workflow artifact
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ThemeKit-Package
+          path: dist/openmediavault-themekit_all.deb
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          # Assumes the tag name is v<version>, e.g. v1.0.7
+          name: "ThemeKit ${{ github.ref_name }}"
+          generate_release_notes: true
+          files: |
+            dist/openmediavault-themekit_${{ steps.stage.outputs.version }}_all.deb
+            dist/openmediavault-themekit_all.deb

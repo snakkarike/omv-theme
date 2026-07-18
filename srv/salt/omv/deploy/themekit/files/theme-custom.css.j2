@@ -843,3 +843,24 @@ omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .
 }
 
 {% endif %}
+
+{% if enableCustomBranding %}
+{% if brandingType == 'text' %}
+.omv-navigation-bar .header .logo {
+    background-image: none !important;
+    display: flex;
+    align-items: center;
+}
+.omv-navigation-bar .header .logo::after {
+    content: "{{ brandingText }}";
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--omv-color-white, #fff);
+    white-space: nowrap;
+}
+{% elif brandingType == 'image' and brandingImageUrl != '' %}
+.omv-navigation-bar .header .logo {
+    background-image: url("{{ brandingImageUrl }}") !important;
+}
+{% endif %}
+{% endif %}

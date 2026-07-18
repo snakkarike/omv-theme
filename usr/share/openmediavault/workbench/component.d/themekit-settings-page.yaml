@@ -151,5 +151,64 @@ data:
               arg0:
                 prop: theme
               arg1: none
+      - type: divider
+        title: _("Branding")
+      - type: checkbox
+        name: enableCustomBranding
+        label: _("Enable Custom Branding")
+        value: false
+      - type: select
+        name: brandingType
+        label: _("Branding Type")
+        value: text
+        store:
+          data:
+            - value: text
+              text: _("Text")
+            - value: image
+              text: _("Image URL")
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: eq
+              arg0:
+                prop: enableCustomBranding
+              arg1: false
+      - type: textInput
+        name: brandingText
+        label: _("Custom Text")
+        value: "OpenMediaVault"
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: or
+              arg0:
+                operator: eq
+                arg0:
+                  prop: enableCustomBranding
+                arg1: false
+              arg1:
+                operator: ne
+                arg0:
+                  prop: brandingType
+                arg1: text
+      - type: textInput
+        name: brandingImageUrl
+        label: _("Custom Image URL")
+        value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: or
+              arg0:
+                operator: eq
+                arg0:
+                  prop: enableCustomBranding
+                arg1: false
+              arg1:
+                operator: ne
+                arg0:
+                  prop: brandingType
+                arg1: image
     buttons:
       - template: submit
