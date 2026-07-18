@@ -860,7 +860,7 @@ omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .
 }
 {% elif brandingType == 'image' and brandingImageUrl != '' %}
 .omv-navigation-bar .header .logo {
-    background-image: url("{{ brandingImageUrl }}") !important;
+    background-image: url("./custom_logo.{{ brandingImageExt }}") !important;
 }
 {% endif %}
 {% endif %}

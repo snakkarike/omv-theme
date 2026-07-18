@@ -16,6 +16,27 @@
 {% set active_font = config.customFont_all | default('') %}
 {% endif %}
 
+{% set branding_url = config.brandingImageUrl | default('') %}
+{% set branding_ext = '' %}
+{% if config.enableCustomBranding | default(False) and config.brandingType | default('text') == 'image' and branding_url %}
+{% set parsed_ext = branding_url.split('.')[-1].split('?')[0] | lower %}
+{% if parsed_ext in ['png', 'jpg', 'jpeg', 'svg', 'gif', 'webp'] %}
+{% set branding_ext = parsed_ext %}
+{% else %}
+{% set branding_ext = 'png' %}
+{% endif %}
+
+clear_old_logos:
+  cmd.run:
+    - name: rm -f {{ webroot }}/assets/custom_logo.*
+
+download_custom_logo:
+  cmd.run:
+    - name: wget -q --timeout=10 -O {{ webroot }}/assets/custom_logo.{{ branding_ext }} "{{ branding_url }}" || true
+    - require:
+      - cmd: clear_old_logos
+{% endif %}
+
 # --- CSS override, lives in assets/ which is not hash-named and is safe
 # to leave in place across OMV rebuilds. -------------------------------
 
@@ -39,6 +60,7 @@ theme_custom_css:
         brandingType: {{ config.brandingType | default('text') | json }}
         brandingText: {{ config.brandingText | default('OpenMediaVault') | json }}
         brandingImageUrl: {{ config.brandingImageUrl | default('') | json }}
+        brandingImageExt: {{ branding_ext | json }}
 
 user_custom_css:
   file.managed:
