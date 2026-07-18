@@ -1,3 +1,13 @@
+openmediavault-themekit (1.0.8) stable; urgency=medium
+
+  * Added Custom Branding section to replace the OpenMediaVault logo with custom text or an external image URL.
+  * Implemented Content Security Policy (CSP) bypass by dynamically downloading external branding images locally via Salt during deployment.
+  * Added responsive Mobile Logo support to define a separate short-text or square image for screens under 420px.
+  * Replaced logo correctly on login, authentication, and standby pages by overriding the `content` CSS property.
+  * Added automated GitHub Actions workflow for building and publishing `.deb` releases on version tags.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sun, 19 Jul 2026 01:25:00 +0530
+
 openmediavault-themekit (1.0.7) stable; urgency=medium
 
   * Replaced background `exec(omv-salt ...)` call in the RPC `set` method with a proper omv-engined module listener following the standard OpenMediaVault plugin architecture.
