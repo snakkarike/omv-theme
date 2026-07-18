@@ -846,12 +846,17 @@ omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .
 
 {% if enableCustomBranding %}
 {% if brandingType == 'text' %}
-.omv-navigation-bar .header .logo {
+.omv-navigation-bar .header .logo,
+.topbar .logo,
+omv-login-page .topbar .logo {
     background-image: none !important;
+    content: none !important;
     display: flex;
     align-items: center;
 }
-.omv-navigation-bar .header .logo::after {
+.omv-navigation-bar .header .logo::after,
+.topbar .logo::after,
+omv-login-page .topbar .logo::after {
     content: "{{ brandingText }}";
     font-size: 1.25rem;
     font-weight: 500;
@@ -862,5 +867,23 @@ omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .
 .omv-navigation-bar .header .logo {
     background-image: url("./custom_logo.{{ brandingImageExt }}") !important;
 }
+.topbar .logo,
+omv-login-page .topbar .logo {
+    content: url("./custom_logo.{{ brandingImageExt }}") !important;
+}
 {% endif %}
+
+@media only screen and (max-width: 420px) {
+{% if brandingType == 'text' %}
+    .topbar .logo::after,
+    omv-login-page .topbar .logo::after {
+        content: "{{ brandingTextMobile }}";
+    }
+{% elif brandingType == 'image' and brandingImageUrlMobile != '' %}
+    .topbar .logo,
+    omv-login-page .topbar .logo {
+        content: url("./custom_logo_mobile.{{ brandingImageExtMobile }}") !important;
+    }
+{% endif %}
+}
 {% endif %}

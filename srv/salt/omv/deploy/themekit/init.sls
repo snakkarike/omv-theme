@@ -18,23 +18,46 @@
 
 {% set branding_url = config.brandingImageUrl | default('') %}
 {% set branding_ext = '' %}
-{% if config.enableCustomBranding | default(False) and config.brandingType | default('text') == 'image' and branding_url %}
+{% set branding_url_mobile = config.brandingImageUrlMobile | default('') %}
+{% set branding_ext_mobile = '' %}
+{% if config.enableCustomBranding | default(False) and config.brandingType | default('text') == 'image' %}
+{% if branding_url %}
 {% set parsed_ext = branding_url.split('.')[-1].split('?')[0] | lower %}
 {% if parsed_ext in ['png', 'jpg', 'jpeg', 'svg', 'gif', 'webp'] %}
 {% set branding_ext = parsed_ext %}
 {% else %}
 {% set branding_ext = 'png' %}
 {% endif %}
+{% endif %}
+
+{% if branding_url_mobile %}
+{% set parsed_ext_mobile = branding_url_mobile.split('.')[-1].split('?')[0] | lower %}
+{% if parsed_ext_mobile in ['png', 'jpg', 'jpeg', 'svg', 'gif', 'webp'] %}
+{% set branding_ext_mobile = parsed_ext_mobile %}
+{% else %}
+{% set branding_ext_mobile = 'png' %}
+{% endif %}
+{% endif %}
 
 clear_old_logos:
   cmd.run:
-    - name: rm -f {{ webroot }}/assets/custom_logo.*
+    - name: rm -f {{ webroot }}/assets/custom_logo.* {{ webroot }}/assets/custom_logo_mobile.*
 
+{% if branding_url %}
 download_custom_logo:
   cmd.run:
     - name: wget -q --timeout=10 -O {{ webroot }}/assets/custom_logo.{{ branding_ext }} "{{ branding_url }}" || true
     - require:
       - cmd: clear_old_logos
+{% endif %}
+
+{% if branding_url_mobile %}
+download_custom_logo_mobile:
+  cmd.run:
+    - name: wget -q --timeout=10 -O {{ webroot }}/assets/custom_logo_mobile.{{ branding_ext_mobile }} "{{ branding_url_mobile }}" || true
+    - require:
+      - cmd: clear_old_logos
+{% endif %}
 {% endif %}
 
 # --- CSS override, lives in assets/ which is not hash-named and is safe
@@ -61,6 +84,9 @@ theme_custom_css:
         brandingText: {{ config.brandingText | default('OpenMediaVault') | json }}
         brandingImageUrl: {{ config.brandingImageUrl | default('') | json }}
         brandingImageExt: {{ branding_ext | json }}
+        brandingTextMobile: {{ config.brandingTextMobile | default('OMV') | json }}
+        brandingImageUrlMobile: {{ config.brandingImageUrlMobile | default('') | json }}
+        brandingImageExtMobile: {{ branding_ext_mobile | json }}
 
 user_custom_css:
   file.managed:

@@ -195,6 +195,44 @@ data:
       - type: textInput
         name: brandingImageUrl
         label: _("Custom Image URL")
+        hint: _("Recommended size: 350x35 pixels")
+        value: ""
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: or
+              arg0:
+                operator: eq
+                arg0:
+                  prop: enableCustomBranding
+                arg1: false
+              arg1:
+                operator: ne
+                arg0:
+                  prop: brandingType
+                arg1: image
+      - type: textInput
+        name: brandingTextMobile
+        label: _("Custom Text (Mobile)")
+        value: "OMV"
+        modifiers:
+          - type: hidden
+            constraint:
+              operator: or
+              arg0:
+                operator: eq
+                arg0:
+                  prop: enableCustomBranding
+                arg1: false
+              arg1:
+                operator: ne
+                arg0:
+                  prop: brandingType
+                arg1: text
+      - type: textInput
+        name: brandingImageUrlMobile
+        label: _("Custom Image URL (Mobile)")
+        hint: _("Recommended size: 40x40 pixels square")
         value: ""
         modifiers:
           - type: hidden

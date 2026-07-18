@@ -143,7 +143,15 @@
             "type": "string",
             "default": "OpenMediaVault"
         },
+        "brandingTextMobile": {
+            "type": "string",
+            "default": "OMV"
+        },
         "brandingImageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "brandingImageUrlMobile": {
             "type": "string",
             "default": ""
         }

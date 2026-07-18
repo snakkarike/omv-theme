@@ -122,7 +122,13 @@
             "brandingText": {
                 "type": "string"
             },
+            "brandingTextMobile": {
+                "type": "string"
+            },
             "brandingImageUrl": {
+                "type": "string"
+            },
+            "brandingImageUrlMobile": {
                 "type": "string"
             }
         }
