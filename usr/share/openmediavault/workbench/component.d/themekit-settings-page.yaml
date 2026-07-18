@@ -195,7 +195,7 @@ data:
       - type: textInput
         name: brandingImageUrl
         label: _("Custom Image URL")
-        hint: _("Recommended size: 350x35 pixels")
+        hint: _("Recommended size 350x35 pixels (light logo)")
         value: ""
         modifiers:
           - type: hidden
@@ -232,7 +232,7 @@ data:
       - type: textInput
         name: brandingImageUrlMobile
         label: _("Custom Image URL (Mobile)")
-        hint: _("Recommended size: 40x40 pixels square")
+        hint: _("Recommended size 40x40 pixels square (light logo)")
         value: ""
         modifiers:
           - type: hidden
