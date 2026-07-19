@@ -1,0 +1,20 @@
+Package: openmediavault-themekit
+Version: 1.0.9
+Architecture: all
+Maintainer: Saurabh Nakkarike <gradelabsin@gmail.com>
+Installed-Size: 2294
+Depends: openmediavault (>= 8.1.1)
+Filename: pool/main/openmediavault-themekit_1.0.9_all.deb
+Size: 219632
+MD5sum: 95875ba4dd9924ae1640c4a8681358ed
+SHA1: cb5aa9caaa71d8049f97b663337c9460fcfd3f66
+SHA256: 7002242693e1d00188c5baf34edc65ebb2021d846dbc34c90643c7354eaece09
+Section: net
+Priority: optional
+Homepage: https://github.com/snakkarike/openmediavault-themekit
+Description: Custom theme and accent color plugin for openmediavault
+  A plugin that allows you to easily customize the OpenMediaVault 8 web
+  interface. It provides a system settings page to select a custom theme,
+  accent color, typography, and custom CSS. Settings persist across
+  OpenMediaVault updates via a dpkg trigger.
+

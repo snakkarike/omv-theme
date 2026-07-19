@@ -1,0 +1,17 @@
+Date: Sun, 19 Jul 2026 10:03:44 +0000
+MD5Sum:
+ 766ef71304676eb01265c5c9377dd3a1               38 Release
+ 7895c97c087421bfd694db7540811c56              833 main/binary-all/Packages
+ 100254f27c765e7c3802c5f6d1a56a99              544 main/binary-all/Packages.gz
+SHA1:
+ 854f2e2b51cb28e4a68bb00005420b6cc513e46e               38 Release
+ cc79de2cb3c5af104db7641607c64944e8383aac              833 main/binary-all/Packages
+ 9d21ec93516a05db87caeb9b186fadaf797f2f4b              544 main/binary-all/Packages.gz
+SHA256:
+ 081b2d60bd18e980ebfe4de03db6a0c759396202e1e5bdb6b0517b7b91e76d88               38 Release
+ 924d21e57372240968fc3371c38d144c44aaa72d0f47a8419f824c7af27e12f2              833 main/binary-all/Packages
+ 6d5f2c45aec4200d023a0ac6432f250801625ad38134739c07ecfe4af117b8e9              544 main/binary-all/Packages.gz
+SHA512:
+ bf3f79fc4b662b23bc47aec6e049be920f5a4767495a56040c07614e4e2a7ea4cf85116992a3ac790a25138abed81b0d5e71a632396f9ab9677a0a50079c9ec1               38 Release
+ da7ad34976b06c568348eb7caa994b878aba6f5cbfff7663411e96969c30d5650766712308b25edcd742d25a50ddc8fb9971dc3079fdf773aa93b76863bace5d              833 main/binary-all/Packages
+ 7c32490cc07248054435b7ca929a5a0b0c5bdec73513619a815276831986ab2e11aca0480e7bd8ed3a01f2765d0c090eaa816ab877f4cfd83b25f2e62516e4cd              544 main/binary-all/Packages.gz
