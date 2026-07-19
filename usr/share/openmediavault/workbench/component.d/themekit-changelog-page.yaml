@@ -16,6 +16,10 @@ data:
         label: _("Release History")
         rows: 50
         value: |
+          openmediavault-themekit (1.1.0)
+
+            * Setup new apt installation system to allow apt upgrades to work properly.
+
           openmediavault-themekit (1.0.9)
 
             * Set character limits for custom branding text inputs and fixed font-family application.

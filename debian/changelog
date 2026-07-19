@@ -1,3 +1,9 @@
+openmediavault-themekit (1.1.0) stable; urgency=medium
+
+  * Setup new apt installation system to allow apt upgrades to work properly.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Sun, 19 Jul 2026 15:45:00 +0530
+
 openmediavault-themekit (1.0.9) stable; urgency=medium
 
   * Set character limits for custom branding text inputs and fixed font-family application.
