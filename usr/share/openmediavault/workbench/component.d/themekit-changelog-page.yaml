@@ -20,6 +20,8 @@ data:
 
             * Fixed active row background visibility in datatables for custom themes.
             * Fixed disabled icon buttons contrast issue by applying theme-specific disabled colors.
+            * Fixed badge color overriding by restoring distinct colors for Angular Material accent and warn badges.
+            * Fixed dropdown (mat-option) hover text colors by separating active and hover CSS states.
 
           openmediavault-themekit (1.1.1)
 

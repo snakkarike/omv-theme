@@ -185,7 +185,15 @@ button.mat-menu-item:has(mat-icon[svgicon="mdi:weather-night"]) {
 }
 
 .mat-badge-content {
-  background:var(--theme-primary) !important;
+  background-color: var(--theme-primary) !important;
+}
+.mat-badge-accent .mat-badge-content {
+  background-color: var(--color-warningText, #ff9800) !important;
+  color: #fff !important;
+}
+.mat-badge-warn .mat-badge-content {
+  background-color: var(--color-errorText, #f44336) !important;
+  color: #fff !important;
 }
 
 .mat-button.mat-primary,.mat-icon-button.mat-primary,.mat-stroked-button.mat-primary {
@@ -392,7 +400,15 @@ button.mat-menu-item:has(mat-icon[svgicon="mdi:weather-night"]) {
 }
 
 .omv-dark-theme .mat-badge-content {
-  background:var(--theme-primary) !important;
+  background-color: var(--theme-primary) !important;
+}
+.omv-dark-theme .mat-badge-accent .mat-badge-content {
+  background-color: var(--color-warningText, #ffb74d) !important;
+  color: #fff !important;
+}
+.omv-dark-theme .mat-badge-warn .mat-badge-content {
+  background-color: var(--color-errorText, #e57373) !important;
+  color: #fff !important;
 }
 
 .omv-dark-theme .mat-button.mat-primary,.omv-dark-theme .mat-icon-button.mat-primary,.omv-dark-theme .mat-stroked-button.mat-primary {
@@ -809,15 +825,20 @@ omv-datatable .ngx-datatable .datatable-body-row.active:hover .datatable-row-gro
     color: var(--color-buttonPrimaryText, var(--color-tableTextSelected, #fff)) !important;
 }
 
-/* Override form selection (dropdowns) active/hover background */
-.mat-option:hover:not(.mat-option-disabled),
+/* Override form selection (dropdowns) hover background */
+.mat-option:hover:not(.mat-option-disabled):not(.mat-active),
+.mat-option:focus:not(.mat-option-disabled):not(.mat-active),
+.omv-dark-theme .mat-option:hover:not(.mat-option-disabled):not(.mat-active),
+.omv-dark-theme .mat-option:focus:not(.mat-option-disabled):not(.mat-active) {
+    background-color: var(--color-menuItemBackgroundHover, var(--color-tableRowBackgroundHover)) !important;
+    color: var(--color-menuItemTextHover, var(--color-tableTextHover, inherit)) !important;
+}
+
+/* Override form selection (dropdowns) active background */
 .mat-option.mat-active:not(.mat-option-disabled),
-.mat-option:focus:not(.mat-option-disabled),
-.omv-dark-theme .mat-option:hover:not(.mat-option-disabled),
-.omv-dark-theme .mat-option.mat-active:not(.mat-option-disabled),
-.omv-dark-theme .mat-option:focus:not(.mat-option-disabled) {
+.omv-dark-theme .mat-option.mat-active:not(.mat-option-disabled) {
     background-color: var(--color-formInputBackgroundSelected, var(--color-menuItemBackgroundHover, var(--color-tableRowBackgroundHover))) !important;
-    color: var(--color-formInputTextSelected, var(--color-pageText, inherit)) !important;
+    color: var(--color-formInputTextSelected, var(--color-menuItemTextSelected, inherit)) !important;
 }
 {% endif %}
 
