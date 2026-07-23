@@ -704,6 +704,14 @@ omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:not(.active)
   border-left: .25rem solid var(--theme-primary) !important;
 }
 
+/* List Text Color Fix */
+.mat-list-base .mat-list-item, 
+.mat-list-base .mat-list-option,
+.omv-dark-theme .mat-list-base .mat-list-item, 
+.omv-dark-theme .mat-list-base .mat-list-option {
+    color: var(--color-pageText, inherit) !important;
+}
+
 /* List Accent */
 .mat-list-item.active {
   border-left: 3px solid var(--theme-primary) !important;
@@ -839,6 +847,13 @@ omv-datatable .ngx-datatable .datatable-body-row.active:hover .datatable-row-gro
 .omv-dark-theme .mat-option.mat-active:not(.mat-option-disabled) {
     background-color: var(--color-formInputBackgroundSelected, var(--color-menuItemBackgroundHover, var(--color-tableRowBackgroundHover))) !important;
     color: var(--color-formInputTextSelected, var(--color-menuItemTextSelected, inherit)) !important;
+}
+
+/* Terminal / Shell widget */
+.omv-background-color-pair-terminal, 
+.omv-dark-theme .omv-background-color-pair-terminal {
+    color: var(--color-formInputText, #33ff33) !important;
+    background-color: var(--color-formInputBackground, #282828) !important;
 }
 {% endif %}
 

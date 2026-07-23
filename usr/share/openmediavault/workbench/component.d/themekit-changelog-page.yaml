@@ -22,6 +22,8 @@ data:
             * Fixed disabled icon buttons contrast issue by applying theme-specific disabled colors.
             * Fixed badge color overriding by restoring distinct colors for Angular Material accent and warn badges.
             * Fixed dropdown (mat-option) hover text colors by separating active and hover CSS states.
+            * Fixed list item text colors being forced to native black in dark themes.
+            * Fixed hardcoded terminal widget colors by mapping them to theme variables.
 
           openmediavault-themekit (1.1.1)
 
