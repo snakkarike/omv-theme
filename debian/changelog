@@ -1,3 +1,10 @@
+openmediavault-themekit (1.1.2) stable; urgency=medium
+
+  * Fixed active row background visibility in datatables for custom themes.
+  * Fixed disabled icon buttons contrast issue by applying theme-specific disabled colors.
+
+ -- Saurabh Nakkarike <gradelabsin@gmail.com>  Thu, 23 Jul 2026 10:47:37 +0530
+
 openmediavault-themekit (1.1.1) stable; urgency=medium
 
   * Removed branding options to preserve the OpenMediaVault logo.

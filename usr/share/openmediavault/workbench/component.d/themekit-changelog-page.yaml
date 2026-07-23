@@ -16,6 +16,11 @@ data:
         label: _("Release History")
         rows: 50
         value: |
+          openmediavault-themekit (1.1.2)
+
+            * Fixed active row background visibility in datatables for custom themes.
+            * Fixed disabled icon buttons contrast issue by applying theme-specific disabled colors.
+
           openmediavault-themekit (1.1.1)
 
             * Removed branding options to preserve the OpenMediaVault logo.

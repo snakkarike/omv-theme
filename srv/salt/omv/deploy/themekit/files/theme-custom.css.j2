@@ -609,27 +609,27 @@ omv-datatable .action-toolbar .mat-toolbar .mat-button:not(.mat-button-disabled)
   color: var(--theme-primary) !important;
 }
 
-omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:hover,
-omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:hover .datatable-row-group,
-.omv-dark-theme omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:hover,
-.omv-dark-theme omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:hover .datatable-row-group
+omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:not(.active):hover,
+omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:not(.active):hover .datatable-row-group,
+.omv-dark-theme omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:not(.active):hover,
+.omv-dark-theme omv-datatable .ngx-datatable:not(.cell-selection) .datatable-body-row:not(.active):hover .datatable-row-group
 {
   background-color: var(--color-tableBorderHover, var(--color-tableRowBackgroundHover, var(--theme-primary))) !important;
   color: var(--color-tableTextHover, inherit) !important;
 }
 
-omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:hover,
-omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:hover .datatable-row-group,
-.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:hover,
-.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:hover .datatable-row-group {
+omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:not(.active):hover,
+omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:not(.active):hover .datatable-row-group,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:not(.active):hover,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-odd:not(.active):hover .datatable-row-group {
   background-color: var(--color-tableBorderHover, var(--color-tableRowBackgroundHover, var(--theme-primary))) !important;
   color: var(--color-tableTextHover, inherit) !important;
 }
 
-omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:hover,
-omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:hover .datatable-row-group,
-.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:hover,
-.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:hover .datatable-row-group {
+omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:not(.active):hover,
+omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:not(.active):hover .datatable-row-group,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:not(.active):hover,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:not(.active):hover .datatable-row-group {
   background-color: var(--color-tableBorderHover, var(--color-tableRowBackgroundHover, var(--theme-primary))) !important;
   color: var(--color-tableTextHover, inherit) !important;
 }
@@ -780,8 +780,8 @@ omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:hover .datat
 .omv-dark-theme .mat-icon-button.mat-button-disabled.mat-button-disabled,
 .mat-button.mat-button-disabled.mat-button-disabled, 
 .omv-dark-theme .mat-button.mat-button-disabled.mat-button-disabled {
-    color: var(--color-pageText, inherit) !important;
-    opacity: 0.26 !important;
+    color: var(--color-buttonBareDisabledText, var(--color-pageTextSubdued, inherit)) !important;
+    opacity: 1 !important;
 }
 
 /* Aggressively override mat-toolbar background and text to respect custom themes */
@@ -797,24 +797,16 @@ omv-datatable .ngx-datatable .datatable-body-row.datatable-row-even:hover .datat
 }
 
 /* Override datatable active/selected row */
-omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active,
-omv-datatable .ngx-datatable.single-selection .datatable-body-row.active,
-omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active .datatable-row-group,
-omv-datatable .ngx-datatable.single-selection .datatable-body-row.active .datatable-row-group,
-.omv-dark-theme omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active,
-.omv-dark-theme omv-datatable .ngx-datatable.single-selection .datatable-body-row.active,
-.omv-dark-theme omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active .datatable-row-group,
-.omv-dark-theme omv-datatable .ngx-datatable.single-selection .datatable-body-row.active .datatable-row-group,
-omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active:hover,
-omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover,
-omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active:hover .datatable-row-group,
-omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .datatable-row-group,
-.omv-dark-theme omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active:hover,
-.omv-dark-theme omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover,
-.omv-dark-theme omv-datatable .ngx-datatable.multi-selection .datatable-body-row.active:hover .datatable-row-group,
-.omv-dark-theme omv-datatable .ngx-datatable.single-selection .datatable-body-row.active:hover .datatable-row-group {
-    background-color: var(--color-tableRowBackgroundHighlight, var(--color-tableBorderSelected, var(--theme-primary))) !important;
-    color: var(--color-tableRowBackgroundHighlightText, var(--color-tableTextSelected, #fff)) !important;
+omv-datatable .ngx-datatable .datatable-body-row.active,
+omv-datatable .ngx-datatable .datatable-body-row.active .datatable-row-group,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.active,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.active .datatable-row-group,
+omv-datatable .ngx-datatable .datatable-body-row.active:hover,
+omv-datatable .ngx-datatable .datatable-body-row.active:hover .datatable-row-group,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.active:hover,
+.omv-dark-theme omv-datatable .ngx-datatable .datatable-body-row.active:hover .datatable-row-group {
+    background-color: var(--color-tableBorderSelected, var(--theme-primary)) !important;
+    color: var(--color-buttonPrimaryText, var(--color-tableTextSelected, #fff)) !important;
 }
 
 /* Override form selection (dropdowns) active/hover background */
